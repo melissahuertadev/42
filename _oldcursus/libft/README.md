@@ -19,4 +19,4 @@ I built some tests that you can find on the "main" directory inside this project
 Personally I had issues understanding `strlcat` and its behaviour, here is an useful [link](https://stackoverflow.com/questions/33154740/strlcat-is-dst-always-nul-terminated-what-are-size-and-the-returned-value)
 
 ## Grade ~ 👩🏽‍💻
-![42FileChecker - result](/rs/42FChk.png)
+![42FileChecker - result](https://github.com/piratelicorne/42/blob/master/_oldcursus/libft/rs/42FChk.png)
