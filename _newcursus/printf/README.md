@@ -12,6 +12,42 @@
 
 *"You will mainly learn how to use variadic arguments."*
 
+## Solving ~
+---
+Flow chart 1.0   
+   
+<img src="https://github.com/piratelicorne/42/blob/master/_newcursus/printf/img/printf-fc-0.png" width="1020px">  
+
+<br><br>
+
+### Requirements
+
+#### 🍙 For character
+---
+
+Those are the posible combinations
+
+| Case  | format        | args_list       | output expected        |   
+| ------|-------------- | --------------- | ---------------------- |
+| 0     | %c %-4cM      | '?', 42         | <pre>? *   M</pre>     |
+| 1     | %c %c         | '?', 42         | ? *                    |   
+| 2     | %-3c.         | 'm'             | <pre>m  .</pre>        |
+| 3     | %-11c         | 'm'             | <pre>m          .</pre>|   
+| 3     | %*c.          | 5, 'm'          | <pre>    m.</pre>      |  
+| 4     | %-*c.         | 5, 'm'          | <pre>m    .</pre>      |  
+| 5     | %03c.         | 'f'             | 00f.                   |
+
+Once there is % found, the order to analyze is:
+1. Check if there is a '-' flag
+2. Check if there is a '0' flag
+3. Check the width or if there is * (next arg will take the value)
+4. Check the specifier
+
+
+## Learning ~
+To do this project you need to understand how variadic functions and arguments work, here I'll leave a summary and resources links.
+
+
 ### variadic functions
 ---
 Ordinary C functions take a fixed number of arguments, to declare a function, the arguments's data types are defined and everytime that function is called, you must supply the expected number and type of arguments.
@@ -60,28 +96,3 @@ In order to start creating a program that uses this structure you must include `
    ```va_end``` >> not really necessary since GCC will not even notice it, use it in order to close the list up.  
 
 [+ Reference](https://medium.com/@SergioPietri/what-are-variadic-functions-in-c-6205e26c729f)
-
-## SOLVING
-
-### Requirements
-
-#### 🍙 For character
----
-
-Those are the posible combinations
-
-| Case  | format        | args_list       | output expected        |   
-| ------|-------------- | --------------- | ---------------------- |
-| 0     | %c %-4cM      | '?', 42         | <pre>? *   M</pre>     |
-| 1     | %c %c         | '?', 42         | ? *                    |   
-| 2     | %-3c.         | 'm'             | <pre>m  .</pre>        |
-| 3     | %-11c         | 'm'             | <pre>m          .</pre>|   
-| 3     | %*c.          | 5, 'm'          | <pre>    m.</pre>      |  
-| 4     | %-*c.         | 5, 'm'          | <pre>m    .</pre>      |  
-| 5     | %03c.         | 'f'             | 00f.                   |
-
-Once there is % found, the order to analyze is:
-1. Check if there is a '-' flag
-2. Check if there is a '0' flag
-3. Check the width or if there is * (next arg will take the value)
-4. Check the specifier
