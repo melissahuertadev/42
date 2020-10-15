@@ -6,7 +6,7 @@
 /*   By: mhuerta <mhuerta@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/05 18:19:01 by mhuerta           #+#    #+#             */
-/*   Updated: 2020/10/07 16:29:47 by mhuerta          ###   ########.fr       */
+/*   Updated: 2020/10/15 00:02:10 by mhuerta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ int main(int ac, char const  **av){
    
     printf("**** case 7: %%1c%%2c%%3c%%4c%%1c%%2c values given: ''\"',  '!', '\"', '#', '$', '%%' \n");
     printf("printf    ~ %1c%2c%3c%4c%1c%2c\n", '\"',  '!','\"', '#', '$', '%');
-    ft_printf("ft_printf ~ %1c%2c%3c%4c%1c%2c\n", '!', '#', '$', '%');
+    ft_printf("ft_printf ~ %1c%2c%3c%4c%1c%2c\n", '\"', '!', '\"', '#', '$', '%');
     printf("\n");
     printf("******************************\n");
     

@@ -6,7 +6,7 @@
 /*   By: mhuerta <mhuerta@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/06 01:31:58 by mhuerta           #+#    #+#             */
-/*   Updated: 2020/10/07 14:34:49 by mhuerta          ###   ########.fr       */
+/*   Updated: 2020/10/15 00:01:16 by mhuerta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,17 @@ int ft_putspecifier(t_fields *fields, va_list args_list)
   return (ret);
 }
 
+void  pft_setflags(t_fields *attr, const char fmt){
+    if (fmt == '-')
+    {
+      attr->fNegative = 1;
+      attr->fZero = 0;
+    } else if (fmt == '*'){
+      attr->wildcard = 1;
+    } else if(fmt == '0'){
+        attr->fZero = 1;
+    }
+}
 /* 
   Busca los valores reales de los campos (fields) flags, width y precision.
   y los coloca.
@@ -40,21 +51,7 @@ void pft_setfields(t_fields *attr, const char *fmt)
   n = 0;
   while (*fmt == '-' || *fmt == '*' || ft_isdigit(*fmt))
   {
-    //es negativo? / justificado a la izquierda?
-    if (*fmt == '-')
-    {
-      attr->fNegative = 1;
-      attr->fZero = 0;
-      fmt++;
-    } else if (*fmt == '*'){
-      attr->wildcard = 1;
-      fmt++;
-    } else if(*fmt == '0'){
-        attr->fZero = 1;
-        fmt++;
-    }
-      
-    
+    pft_setflags(attr, *fmt);
     if (ft_isdigit(*fmt))
     { 
       //parte de atoi
@@ -66,9 +63,11 @@ void pft_setfields(t_fields *attr, const char *fmt)
       }
       
       attr->width = n;
-     // printf("%d width: ", attr->width);
+      //printf("width %d: ", attr->width);
+    } else{
+      attr->q++;
+      fmt++;
     }
-    attr->q++;
   }
   attr->spec = *fmt;
   //printf("spec: %c\n", attr->spec);

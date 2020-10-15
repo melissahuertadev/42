@@ -48,6 +48,7 @@ int		ft_putspecifier(t_fields *attr, va_list args_list);
 //funciones que gestionan los campos flags, width, precision
 void	ptf_initfields(t_fields *attr);
 void	pft_setfields(t_fields *attr, const char *fmt);
+void	pft_setflags(t_fields *attr, const char fmt);
 
 //función MAESTRA
 int		ft_printf(const char *format, ...);
