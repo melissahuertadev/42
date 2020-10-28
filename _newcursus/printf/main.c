@@ -6,7 +6,7 @@
 /*   By: mhuerta <mhuerta@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/05 18:19:01 by mhuerta           #+#    #+#             */
-/*   Updated: 2020/10/15 00:02:10 by mhuerta          ###   ########.fr       */
+/*   Updated: 2020/10/15 00:45:52 by mhuerta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,17 +48,8 @@ void    ptf_tst_char(){
 
     printf("**** case 6: %%03c. values given: 'f' ******\n");
     printf("printf    ~ %03c.\n", 'f');
-    ft_printf("ft_printf ~ %03c.\n",'f');
-    printf("\n\n");
-}
-
-
-/*
- **** MAIN TO TEST 🍙 ****
-*/
-
-int main(int ac, char const  **av){
-    ptf_tst_char();
+    ft_printf("ft_printf ~ %03c.\n\n",'f');
+ 
     printf("********************************************\n");
     printf("************ EXTRA TESTS x CHAR ************\n");
     printf("********************************************\n");
@@ -68,7 +59,24 @@ int main(int ac, char const  **av){
     ft_printf("ft_printf ~ %1c%2c%3c%4c%1c%2c\n", '\"', '!', '\"', '#', '$', '%');
     printf("\n");
     printf("******************************\n");
+}
+
+
+/*
+ **** MAIN TO TEST 🍙 ****
+*/
+
+int main(int ac, char const  **av){
+    //ptf_tst_char();
     
+    printf("********************************************\n");
+    printf("*************** TESTS x STR ***************\n");
+    printf("********************************************\n");
+    
+    printf("**** case 0: %%s %%s values given: 'hey my name is ', 'Melissa' **\n");
+    printf ("printf    ~ %s %s\n", "hey my name is ", "Melissa");
+    ft_printf ("printf    ~ %s %s\n", "hey my name is ", "Melissa");
+
     /*
     printf("********************************************\n");
     printf("*************** TESTS x CHAR ***************\n");
