@@ -10,5 +10,7 @@ notes
 #testers
 pft*
 42TESTERS-PRINTF
-*.o
 *.a
+*.o
+*.apft/
+pft/
