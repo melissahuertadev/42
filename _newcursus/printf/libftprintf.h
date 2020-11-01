@@ -43,12 +43,13 @@ int		pft_spaces(int cant, char c);
 
 //funciones PRINTERS SPEC
 int		ptf_char(t_fields *attr, va_list args_list);
+int		ptf_str(t_fields *fields, va_list args_list);
 int		ft_putspecifier(t_fields *attr, va_list args_list);
 
 //funciones que gestionan los campos flags, width, precision
 void	ptf_initfields(t_fields *attr);
-void	pft_setfields(t_fields *attr, const char *fmt);
-void	pft_setflags(t_fields *attr, const char fmt);
+void	pft_setfields(t_fields *attr, const char *fmt, va_list args_list);
+void	pft_setflags(t_fields *attr, const char fmt, va_list args_list);
 
 //función MAESTRA
 int		ft_printf(const char *format, ...);

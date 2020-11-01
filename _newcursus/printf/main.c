@@ -6,17 +6,39 @@
 /*   By: mhuerta <mhuerta@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/05 18:19:01 by mhuerta           #+#    #+#             */
-/*   Updated: 2020/10/15 00:45:52 by mhuerta          ###   ########.fr       */
+/*   Updated: 2020/11/01 16:53:31 by mhuerta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
 //void    ptf_tst_num(){}
-//void    ptf_tst_str(){}
+
 
 
 void    ptf_tst_char(){
+    /* ******************************  CHAR  ************************************* */
+    /*
+    Para imprimir un caracter, este puede tener las sgtes combinaciones:
+
+        - : justificado a la izquierda, con el 'width' brindado
+        * : cuando el 'width' no es especificado, pero se brinda como un entero,
+            precediendo a 'c'
+    *******************************************************************************
+    
+        | Case  | format        | args_list       | output expected        |
+        | --------------------- | --------------- | ---------------------- |
+        | 0     | %c %-4cM      | '?', 42         | ? *   M                | OK
+        | 1     | %c %c         | '?', 42         | ? *                    | OK
+        | 2     | %-3c.         | 'm'             | m  .                   | OK
+        | 3     | %-11c.        | 'm'             | m          .           | OK
+        | 4     | %*c           | 5, 'm'          |     m.                 | OK
+        | 5     | %-*c.         | 5, 'm'          | m    .                 | OK
+        | 6     | %03c.         | 'f'             | 00f.                   | OK
+
+    ********************************************************************************
+    */
+
     printf("********************************************\n");
     printf("*************** TESTS x CHAR ***************\n");
     printf("********************************************\n");
@@ -61,26 +83,42 @@ void    ptf_tst_char(){
     printf("******************************\n");
 }
 
+void    ptf_tst_str(){
+    printf("********************************************\n");
+    printf("*************** TESTS x STR ***************\n");
+    printf("********************************************\n");
+}
+
 
 /*
  **** MAIN TO TEST 🍙 ****
 */
 
 int main(int ac, char const  **av){
+    //flags: #-+`'0][width][precision][format character]
+    printf("[-0][width][precision][format character]\n");
+    printf("%-05.c\n", 'm');
+    ft_printf("%-05.c\n", 'm');
+
+    
     //ptf_tst_char();
+    //ptf_tst_str();
     
-    printf("********************************************\n");
-    printf("*************** TESTS x STR ***************\n");
-    printf("********************************************\n");
     
-    printf("**** case 0: %%s %%s values given: 'hey my name is ', 'Melissa' **\n");
-    printf ("printf    ~ %s %s\n", "hey my name is ", "Melissa");
-    ft_printf ("printf    ~ %s %s\n", "hey my name is ", "Melissa");
+    /* 
+    
+    printf("**** case 0: %%s %%s values given: 'hey my name is', 'Melissa' **\n");
+    printf ("printf    ~ %s %s\n", "hey my name is", "Melissa");
+    ft_printf ("printf    ~ %s %s\n\n", "hey my name is", "Melissa");
+    printf("**** case 1: %%-2s- values given: 'hey Arnold' **\n");
+    printf ("printf    ~ %-2s-\n", "hey Arnold");
+    ft_printf ("printf    ~ %-2s-\n", "hey Arnold");
+    printf("**** case 1: %%s %%-8s- values given: 'hey', 'Arnold' **\n");
+    printf ("printf    ~ %s %-8s-\n", "hey", "Arnold");
+    ft_printf ("printf    ~ %s %-8s-\n", "hey", "Arnold"); */
+    
 
     /*
-    printf("********************************************\n");
-    printf("*************** TESTS x CHAR ***************\n");
-    printf("********************************************\n");
     printf ("printf ~ string: %s \n", "Yellow sunshine");
     ft_printf ("ft_printf ~ string: %s \n", "Yellow sunshine");
     printf ("***** \n");
