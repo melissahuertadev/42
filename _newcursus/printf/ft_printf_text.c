@@ -6,7 +6,7 @@
 /*   By: mhuerta <mhuerta@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/12 19:18:57 by mhuerta           #+#    #+#             */
-/*   Updated: 2020/11/01 16:52:34 by mhuerta          ###   ########.fr       */
+/*   Updated: 2020/11/01 20:51:09 by mhuerta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -145,9 +145,8 @@ int	ft_printf_s(t_flags *flags, va_list args)
 }
  * /
 }
+ } 
 */
-
-/* }
 
 int ptf_char(t_fields *fields, va_list args_list)
 {
@@ -192,7 +191,7 @@ int pft_spaces(int cant, char c)
   
   return (ret);
 }
- */
+
 //int pft_star(){
 
   /*

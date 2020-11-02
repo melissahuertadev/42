@@ -6,12 +6,12 @@
 /*   By: mhuerta <mhuerta@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/06 01:31:58 by mhuerta           #+#    #+#             */
-/*   Updated: 2020/11/01 16:52:02 by mhuerta          ###   ########.fr       */
+/*   Updated: 2020/11/01 20:57:13 by mhuerta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
-/* 
+
 /*
   Esta es la función MAESTRA 🤓, la que llama al resto de funciones
   1. Recibe *format como primer argumento y otros ...
@@ -21,11 +21,9 @@
     - attr (estructura de tipo t_fmt, en la que se almacenaran flags, width, precision)
   3. Itera por cada caracter de *format y al encontrar un '%' llama a otras funciones
     - inicializa los valores de los campos con `ptf_initfields`
-    - identifica cual de los campos sigue al %  con `pft_setfields`
-
-    [flags: #-+`'0][width][precision][format character]
+    - identifica cual de los campos sigue al %  con `pft_setfields`  
 */
-/*
+
 int ft_printf(char const *format, ...)
 {
   //2.
@@ -40,22 +38,18 @@ int ft_printf(char const *format, ...)
   {
     if (*format == '%')
     {
-      //analyze format ~ ret
-      ptf_initfields(&attr);
       format++;
-      pft_setfields(&attr, format, args_list);
-      ret += ft_putspecifier(&attr, args_list);
-     // printf("format: %c\n", *format);
-      format = format + attr.q;
-     // printf("format: %c\n", *format);
+      //printf("format after the %% %c\n", *format);
+      format += pft_putfields(&attr, format, args_list);
+      ret += attr.q;
+      //printf("format moved to %c\n", *format);
     }
     else
-    {
-      ft_putchar(*format);
-      ret++;
-      format++;
-    }
+      ret += ft_putcharcounter(*format);
+    format++;
   }
+
   va_end(args_list);
+  //printf("characters printed %d\n", ret);
   return (ret);
-} */
+}
