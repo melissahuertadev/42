@@ -6,7 +6,7 @@
 /*   By: mhuerta <mhuerta@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/06 01:31:58 by mhuerta           #+#    #+#             */
-/*   Updated: 2020/11/07 16:34:29 by mhuerta          ###   ########.fr       */
+/*   Updated: 2020/11/07 16:46:15 by mhuerta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,8 @@ int ft_printf(char const *format, ...)
     if (*format == '%')
     {
       format++;
-      //printf("format after the %% %c\n", *format);
       format += pft_putfields(&attr, format, args_list);
       ret += attr.q;
-      //printf("format moved to %c\n", *format);
     }
     else
       ret += ft_putcharcounter(*format);
@@ -50,6 +48,5 @@ int ft_printf(char const *format, ...)
   }
 
   va_end(args_list);
-  //printf("characters printed %d\n", ret);
   return (ret);
 }

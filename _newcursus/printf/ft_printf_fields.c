@@ -6,17 +6,11 @@
 /*   By: mhuerta <mhuerta@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 16:01:43 by mhuerta           #+#    #+#             */
-/*   Updated: 2020/11/07 13:19:04 by mhuerta          ###   ########.fr       */
+/*   Updated: 2020/11/07 16:46:41 by mhuerta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
-
-/*
-  [flags: #-+`'0][width][precision][format character]
-      "%-05.c\n", 'm'
-      "%05.c\n", 'm'  
-*/
 
 int pft_putfields(t_fields *attr, const char *fmt, va_list args_list){
     int ret;
@@ -24,16 +18,8 @@ int pft_putfields(t_fields *attr, const char *fmt, va_list args_list){
     ret = 0;
     ptf_initfields(attr);
     ret += pft_setfields(attr, fmt, args_list);
-    
-    /* printf("setting the fields:\n");
-    printf("negative? %d\n", attr->fNegative);
-    printf("zero? %d\n", attr->fZero);
-    printf("width? %d\n", attr->width);
-    printf("precision? %d\n", attr->precision);
-    printf("spec? %c\n", attr->spec);
-    printf("quantity of bytes %d\n", attr->q);  */
-
     attr->q += ft_putspecifier(attr, args_list);
+    
     return ret;
 }
 
@@ -54,7 +40,6 @@ void ptf_initfields(t_fields *attr)
 }
 
 
-//[flags: -0][width][precision][format character]
 int pft_setfields(t_fields *attr, const char *fmt, va_list args_list)
 {
   int spec_counter;

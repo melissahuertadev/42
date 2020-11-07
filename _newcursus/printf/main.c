@@ -6,7 +6,7 @@
 /*   By: mhuerta <mhuerta@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/05 18:19:01 by mhuerta           #+#    #+#             */
-/*   Updated: 2020/11/07 16:34:08 by mhuerta          ###   ########.fr       */
+/*   Updated: 2020/11/07 16:45:56 by mhuerta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,37 +131,13 @@ void    ptf_tst_str(){
 
 /*
  **** MAIN TO TEST 🍙 ****
+ flags: #-+`'0][width][precision][format character]
 */
 
 int main(int ac, char const  **av){
     
-    /* ptf_tst_char();
-    ptf_tst_str(); */
+    ptf_tst_char();
     ptf_tst_str();
-
-    //flags: #-+`'0][width][precision][format character]
     
-    /*
-    printf ("Decimals: %d %ld\n", 1977, 650000L);
-    ft_printf ("Decimals: %d %ld\n", 1977, 650000L);
-    printf ("***** \n");
-    printf ("Preceding with blanks: %10d \n", 1977);
-    ft_printf ("Preceding with blanks: %10d \n", 1977);
-    printf ("***** \n");
-    printf ("Preceding with zeros: %010d \n", 1977);
-    ft_printf ("Preceding with zeros: %010d \n", 1977);
-    printf ("***** \n");
-    printf ("Some different radices: %d %x %o %#x %#o \n", 100, 100, 100, 100, 100);
-    ft_printf ("Some different radices: %d %x %o %#x %#o \n", 100, 100, 100, 100, 100);
-    printf ("***** \n");
-    printf ("floats: %4.2f %+.0e %E \n", 3.1416, 3.1416, 3.1416);
-    ft_printf ("floats: %4.2f %+.0e %E \n", 3.1416, 3.1416, 3.1416);
-    printf ("***** \n");
-    printf ("Width trick: %*d \n", 5, 10);
-    ft_printf ("Width trick: %*d \n", 5, 10);
-    printf ("***** \n");
-    */
-
-
     return 0;
 }
