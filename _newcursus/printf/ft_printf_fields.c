@@ -6,7 +6,7 @@
 /*   By: mhuerta <mhuerta@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 16:01:43 by mhuerta           #+#    #+#             */
-/*   Updated: 2020/11/01 20:56:14 by mhuerta          ###   ########.fr       */
+/*   Updated: 2020/11/07 13:19:04 by mhuerta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,15 +31,9 @@ int pft_putfields(t_fields *attr, const char *fmt, va_list args_list){
     printf("width? %d\n", attr->width);
     printf("precision? %d\n", attr->precision);
     printf("spec? %c\n", attr->spec);
-    printf("quantity of bytes %d\n", attr->q); */
+    printf("quantity of bytes %d\n", attr->q);  */
 
     attr->q += ft_putspecifier(attr, args_list);
-
-    /*
-      ret += ft_putspecifier(&attr, args_list);
-      format = format + attr.q;
-    */
-    
     return ret;
 }
 
@@ -82,23 +76,23 @@ void  pft_setflags(t_fields *attr, const char fmt,  va_list args_list){
     {
       attr->fNegative = 1;
     }
-    else if(fmt == '0'){
+    else if(fmt == '0' && attr->precision == 0){
         attr->fZero = (attr->fNegative == 1) ? 0 : 1;
     } else if (fmt == '.'){
       attr->precision = 0;  
     } else if (ft_isdigit(fmt)) {
       if(attr->precision == -1){
         attr->width = (attr->width * 10) + (fmt - '0');
-      } else
+      } else {
         attr->precision = (attr->precision * 10) + (fmt - '0');
-    }
-    
-    /*
-    else if (fmt == '*'){
+      }
+    } else if (fmt == '*'){
       attr->wildcard = 1;
-      attr->width = va_arg(args_list, int);
-    }
-    */
+      if(attr->precision == 0){
+         attr->precision = va_arg(args_list, int);
+      } else
+          attr->width = va_arg(args_list, int);
+    }    
 }
 
 /*
@@ -113,13 +107,8 @@ int ft_putspecifier(t_fields *fields, va_list args_list)
   print_counter = 0;
   if (fields->spec == 'c')
     print_counter += ptf_char(fields, args_list);
-  
-  //printf("print_counter %d\n", print_counter);
-  /* if (fields->spec == 'c')
-    ret += ptf_char(fields, args_list);
-  if(fields->spec == 's'){
-    ret += ptf_str(fields, args_list);
-  } */
+  if(fields->spec == 's')
+    print_counter += ptf_str(fields, args_list);
     
   return (print_counter);
 }
