@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_strsub.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mhuerta <mhuerta@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/31 18:58:37 by mhuerta           #+#    #+#             */
-/*   Updated: 2020/11/06 21:39:10 by mhuerta          ###   ########.fr       */
+/*   Created: 2019/07/29 03:06:26 by mhuerta           #+#    #+#             */
+/*   Updated: 2020/11/07 16:37:29 by mhuerta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
-# include <unistd.h>
-# include <stdlib.h>
+#include "libft.h"
 
-size_t				ft_strlen(const char *s);
-int					ft_isdigit(int c);
-void				ft_putchar(char c);
-void				ft_putstr(char const *s);
-char				*ft_strsub(char const *s, unsigned int start, size_t len);
+char	*ft_strsub(char const *s, unsigned int start, size_t len)
+{
+	char	*ns;
+	int		i;
 
-
-#endif
+	i = 0;
+	if (!(ns = (char *)malloc(sizeof(char) * len)))
+		return (NULL);
+	while (i < (int)len)
+		ns[i++] = s[start++];
+	ns[i] = '\0';
+	return (ns);
+}

@@ -6,7 +6,7 @@
 #    By: mhuerta <mhuerta@student.42.us.org>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/08/05 18:18:58 by mhuerta           #+#    #+#              #
-#    Updated: 2020/10/07 16:02:03 by mhuerta          ###   ########.fr        #
+#    Updated: 2020/11/07 13:27:42 by mhuerta          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@
 
 NAME = libftprintf.a
 
-SRCS = ft_printf.c ft_printf_text.c libft/*.c
+SRCS = ft_printf.c ft_printf_fields.c ft_printf_text.c ft_printf_numbers.c ft_helpers.c libft/*.c
 
 
 OBJS = $(SRCS:.c=.o)
@@ -37,7 +37,7 @@ $(NAME):
 	@ar rc $(NAME) $(OBJS)
 	@ranlib $(NAME)
 
-compile:
+compile: re
 	@$(CC) main.c -L. -lftprintf libft/libft.a
 	@echo	main compiled
 

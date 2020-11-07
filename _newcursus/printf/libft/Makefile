@@ -6,7 +6,7 @@
 #    By: mhuerta <mhuerta@student.42.us.org>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/07/29 02:31:48 by mhuerta           #+#    #+#              #
-#    Updated: 2020/10/07 20:10:57 by mhuerta          ###   ########.fr        #
+#    Updated: 2020/11/06 21:40:51 by mhuerta          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@
 
 NAME = libft.a
 
-SRCS = ft_putchar.c ft_putstr.c ft_strlen.c ft_isdigit.c
+SRCS = ft_putchar.c ft_putstr.c ft_strlen.c ft_isdigit.c ft_strsub.c
 
 OBJS = $(SRCS:.c=.o)
 
