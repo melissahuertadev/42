@@ -47,6 +47,8 @@ int		pft_spaces(int cant, char c);
 //funciones PRINTERS SPEC
 int		ptf_char(t_fields *attr, va_list args_list);
 int		ptf_str(t_fields *fields, va_list args_list);
+int		ptf_dcm(t_fields *ffields, va_list args_list);
+
 int		ft_putspecifier(t_fields *attr, va_list args_list);
 
 //funciones que gestionan los campos flags, width, precision

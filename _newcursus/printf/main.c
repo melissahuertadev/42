@@ -6,7 +6,7 @@
 /*   By: mhuerta <mhuerta@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/05 18:19:01 by mhuerta           #+#    #+#             */
-/*   Updated: 2020/11/07 16:34:08 by mhuerta          ###   ########.fr       */
+/*   Updated: 2020/11/07 20:41:46 by mhuerta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,18 +128,58 @@ void    ptf_tst_str(){
     
 }
 
+void    ptf_tst_dcm(){
+    printf("********************************************\n");
+    printf("*************** TESTS x DCM ***************\n");
+    printf("********************************************\n");
+
+    printf("**** case 0: %%d value given: 31 **\n");
+    printf ("sysprintf    ~ %d\n", 31);
+    ft_printf ("ft_printf    ~ %d\n\n", 31);
+
+    printf("**** case 1: %%d value given: -21 **\n");
+    printf ("sysprintf    ~ %d\n", -21);
+    ft_printf ("ft_printf    ~ %d\n\n", -21);
+
+    printf("**** case 2: %%7d value given: 42 **\n");
+    printf ("sysprintf    ~ %7d\n", 42);
+    ft_printf ("ft_printf    ~ %7d\n\n", 42);
+
+    printf("**** case 3: %%-6d value given: 29 **\n");
+    printf ("sysprintf    ~ %-6d\n", 29);
+    ft_printf ("ft_printf    ~ %-6d\n\n", 29);
+
+    printf("**** case 4: %%.5d value given: 3 **\n");
+    printf ("sysprintf    ~ %.5d\n", 3);
+    ft_printf ("ft_printf    ~ %.5d\n\n", 3);
+
+    printf("**** case 5: %%.5d value given: -3 **\n");
+    printf ("sysprintf    ~ %.5d\n", -3);
+    ft_printf ("ft_printf    ~ %.5d\n\n", -3);
+
+    printf ("sysprintf    ~ %05d\n", 19);
+    ft_printf ("ft_printf    ~ %05d\n\n", 19);
+    
+    printf("**** case 7: %%05d value given: -19 **\n");
+    printf ("sysprintf    ~ %05d\n", -19);
+    ft_printf ("ft_printf    ~ %05d\n\n", -19);
+}
+
 
 /*
  **** MAIN TO TEST 🍙 ****
 */
 
 int main(int ac, char const  **av){
-    
-    /* ptf_tst_char();
-    ptf_tst_str(); */
-    ptf_tst_str();
-
     //flags: #-+`'0][width][precision][format character]
+    /*
+    ptf_tst_char();
+    ptf_tst_str();
+    ptf_tst_dcm();
+    */
+
+    ptf_tst_dcm();
+    
     
     /*
     printf ("Decimals: %d %ld\n", 1977, 650000L);
