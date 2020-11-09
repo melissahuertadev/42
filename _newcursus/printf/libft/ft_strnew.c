@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_uintlen.c                                       :+:      :+:    :+:   */
+/*   ft_strnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhuerta <mhuerta@student.42.us.org>        +#+  +:+       +#+        */
+/*   By: mhuerta <mhuerta@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/08/31 03:13:20 by mhuerta           #+#    #+#             */
-/*   Updated: 2020/11/09 17:09:05 by mhuerta          ###   ########.fr       */
+/*   Created: 2019/07/29 03:04:34 by mhuerta           #+#    #+#             */
+/*   Updated: 2019/08/30 06:09:37 by mhuerta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_uintlen(unsigned int n, unsigned int	base)
+char	*ft_strnew(size_t size)
 {
-	int		len;
+	char	*s;
+	int		i;
 
-	len = 1;
-	while (n >= base)
+	i = 0;
+	if (!(s = (char *)malloc(sizeof(char) * size)))
+		return (NULL);
+	while (s[i])
 	{
-		n /= base;
-		len++;
+		s[i] = '\0';
+		i++;
 	}
-	return (len);
+	return (s);
 }
