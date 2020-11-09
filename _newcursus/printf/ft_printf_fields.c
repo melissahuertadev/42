@@ -6,7 +6,7 @@
 /*   By: mhuerta <mhuerta@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 16:01:43 by mhuerta           #+#    #+#             */
-/*   Updated: 2020/11/09 17:32:27 by mhuerta          ###   ########.fr       */
+/*   Updated: 2020/11/09 17:32:29 by mhuerta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,6 @@ void  pft_setflags(t_fields *attr, const char fmt,  va_list args_list){
    if (fmt == '-')
     {
       attr->fMinus = 1;
-      
     }
     else if(fmt == '0' && attr->width == 0){
         attr->fZero = (attr->fMinus == 1) ? 0 : 1;

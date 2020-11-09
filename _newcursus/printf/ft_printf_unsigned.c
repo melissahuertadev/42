@@ -6,18 +6,18 @@
 /*   By: mhuerta <mhuerta@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/30 11:04:13 by mhuerta           #+#    #+#             */
-/*   Updated: 2020/11/09 02:19:59 by mhuerta          ###   ########.fr       */
+/*   Updated: 2020/11/09 17:28:39 by mhuerta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-int		ptf_uns_dcm(t_fields *fields, unsigned int dec){
+int		ptf_uns_dcm(t_fields *fields, unsigned int dec) {
   int   len;
   int   qSpaces;
   int   qZeros;
 
-  len = ft_uintlen(dec);
+  len = ft_uintlen(dec, 10);
   qSpaces = -1;
   qZeros = -1;
 
@@ -47,4 +47,14 @@ int		ptf_uns_dcm(t_fields *fields, unsigned int dec){
     pft_spaces(qSpaces + 1, ' ');
   }
   return len;
+}
+
+
+int ptf_uns_hexa(t_fields *fields,  unsigned int dec) {
+  char  *hexadec;
+
+  hexadec = ft_utoa_hexa(dec, fields->spec);
+  ft_putstr(hexadec);
+  
+  return 0;
 }

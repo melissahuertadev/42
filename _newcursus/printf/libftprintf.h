@@ -42,6 +42,7 @@ typedef struct		s_fields
 int		ft_putcharcounter(char c);
 void	ft_putunbr(unsigned int n);
 void	ft_putunbr_fd(unsigned int n, int fd);
+char	*ft_utoa_hexa(unsigned int n, char spec);
 
 //funciones PRINTERS FLAGS
 int		pft_spaces(int cant, char c);
@@ -49,11 +50,9 @@ int		pft_spaces(int cant, char c);
 //funciones PRINTERS SPEC
 int		ptf_char(t_fields *attr, int c);
 int		ptf_str(t_fields *fields, va_list args_list);
-int		ptf_dcm(t_fields *ffields, va_list args_list);
-int		ptf_uns_dcm(t_fields *ffields, unsigned int nbr);
-
-/* 
-int		ptf_uns_hexa(t_fields *ffields, va_list args_list); */
+int		ptf_dcm(t_fields *fields, va_list args_list);
+int		ptf_uns_dcm(t_fields *fields, unsigned int nbr);
+int		ptf_uns_hexa(t_fields *fields, unsigned int nbr);
 int		ft_putspecifier(t_fields *attr, va_list args_list);
 
 //funciones que gestionan los campos flags, width, precision
