@@ -6,7 +6,7 @@
 /*   By: mhuerta <mhuerta@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 16:01:43 by mhuerta           #+#    #+#             */
-/*   Updated: 2020/11/07 20:59:33 by mhuerta          ###   ########.fr       */
+/*   Updated: 2020/11/09 01:40:27 by mhuerta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,15 +22,6 @@ int pft_putfields(t_fields *attr, const char *fmt, va_list args_list){
     ret = 0;
     ptf_initfields(attr);
     ret += pft_setfields(attr, fmt, args_list);
-    
-    /* printf("setting the fields:\n");
-    printf("negative? %d\n", attr->fNegative);
-    printf("zero? %d\n", attr->fZero);
-    printf("width? %d\n", attr->width);
-    printf("precision? %d\n", attr->precision);
-    printf("spec? %c\n", attr->spec);
-    printf("quantity of bytes %d\n", attr->q); */
-
     attr->q += ft_putspecifier(attr, args_list);
     
     return ret;
@@ -43,7 +34,7 @@ int pft_putfields(t_fields *attr, const char *fmt, va_list args_list){
 */
 void ptf_initfields(t_fields *attr)
 {
-  attr->fNegative = 0;
+  attr->fMinus = 0;
   attr->fZero = 0;
   attr->width = 0;
   attr->precision = -1;
@@ -73,10 +64,11 @@ int pft_setfields(t_fields *attr, const char *fmt, va_list args_list)
 void  pft_setflags(t_fields *attr, const char fmt,  va_list args_list){
    if (fmt == '-')
     {
-      attr->fNegative = 1;
+      attr->fMinus = 1;
+      //flags->zero = 0;
     }
-    else if(fmt == '0' && attr->precision == 0){
-        attr->fZero = (attr->fNegative == 1) ? 0 : 1;
+    else if(fmt == '0' && attr->width == 0){
+        attr->fZero = (attr->fMinus == 1) ? 0 : 1;
     } else if (fmt == '.'){
       attr->precision = 0;  
     } else if (ft_isdigit(fmt)) {
@@ -91,7 +83,7 @@ void  pft_setflags(t_fields *attr, const char fmt,  va_list args_list){
          attr->precision = va_arg(args_list, int);
       } else
           attr->width = va_arg(args_list, int);
-    }    
+    }
 }
 
 /*
@@ -99,17 +91,23 @@ void  pft_setflags(t_fields *attr, const char fmt,  va_list args_list){
   2. Retorna la cantidad de caracteres recorridos/leidos.
 */
 
-int ft_putspecifier(t_fields *fields, va_list args_list)
+int ft_putspecifier(t_fields *fields, va_list args)
 {
   int print_counter;
 
   print_counter = 0;
   if (fields->spec == 'c' || fields->spec == '%')
-    print_counter += ptf_char(fields, args_list);
+    print_counter += ptf_char(fields, fields->spec == 'c' ? va_arg(args, int) : '%');
   if(fields->spec == 's')
-    print_counter += ptf_str(fields, args_list);
+    print_counter += ptf_str(fields, args);
   if(fields->spec == 'd' || fields->spec == 'i')
-    print_counter += ptf_dcm(fields, args_list);
+    print_counter += ptf_dcm(fields, args);
+  if(fields->spec == 'u')
+    print_counter += ptf_uns_dcm(fields, va_arg(args, unsigned int));
+    
+  /* if(fields->spec == 'x' || fields->spec == 'X')
+    print_counter += ptf_uns_hexa(fields, args_list); */
+  //if(fields->spec == 'p'
     
   return (print_counter);
 }

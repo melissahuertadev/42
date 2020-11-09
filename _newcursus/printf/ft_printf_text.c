@@ -6,7 +6,7 @@
 /*   By: mhuerta <mhuerta@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/12 19:18:57 by mhuerta           #+#    #+#             */
-/*   Updated: 2020/11/08 19:04:26 by mhuerta          ###   ########.fr       */
+/*   Updated: 2020/11/09 01:12:57 by mhuerta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,6 @@ int ptf_str(t_fields *fields, va_list args_list){
   len = ft_strlen(str);
   new_len = (fields->precision >= 0 && fields->precision < len) ? fields->precision : len;
   space = fields->fZero == 1 ? '0' : ' ';
-  //printf("new_len %d\n", new_len);
   ret = 0;
   if(fields->width > new_len){
     if(new_len == 0){
@@ -73,15 +72,13 @@ int ptf_str(t_fields *fields, va_list args_list){
   return ret;
 }
 
-int ptf_char(t_fields *fields, va_list args_list)
+int ptf_char(t_fields *fields, int c)
 {
   int ret;
-  char c;
   char  space;
 
   ret = 0;
   space = ' ';
-  c = va_arg(args_list, int);
 
   if (fields->fMinus == 1)
   {

@@ -6,7 +6,7 @@
 #    By: mhuerta <mhuerta@student.42.us.org>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/08/05 18:18:58 by mhuerta           #+#    #+#              #
-#    Updated: 2020/11/07 18:23:25 by mhuerta          ###   ########.fr        #
+#    Updated: 2020/11/09 01:34:06 by mhuerta          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@
 NAME = libftprintf.a
 
 SRCS = ft_printf.c ft_printf_fields.c ft_printf_text.c ft_printf_decimal.c \
-		ft_helpers.c libft/*.c
+		 ft_printf_unsigned.c ft_helpers.c libft/*.c
 
 
 OBJS = $(SRCS:.c=.o)
