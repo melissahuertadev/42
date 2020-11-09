@@ -6,7 +6,7 @@
 /*   By: mhuerta <mhuerta@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/12 19:18:57 by mhuerta           #+#    #+#             */
-/*   Updated: 2020/11/07 16:35:32 by mhuerta          ###   ########.fr       */
+/*   Updated: 2020/11/08 19:04:26 by mhuerta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,9 +54,12 @@ int ptf_str(t_fields *fields, va_list args_list){
   len = ft_strlen(str);
   new_len = (fields->precision >= 0 && fields->precision < len) ? fields->precision : len;
   space = fields->fZero == 1 ? '0' : ' ';
+  //printf("new_len %d\n", new_len);
   ret = 0;
   if(fields->width > new_len){
-    if(fields->fNegative != 1){
+    if(new_len == 0){
+      ret += pft_spaces(fields->width + 1, space);
+    } else if(fields->fMinus != 1){
       ret += pft_spaces(fields->width - new_len + 1, space);
       ft_putstr((const char *)ft_strsub(str, 0, new_len));
     } else{
@@ -80,7 +83,7 @@ int ptf_char(t_fields *fields, va_list args_list)
   space = ' ';
   c = va_arg(args_list, int);
 
-  if (fields->fNegative == 1)
+  if (fields->fMinus == 1)
   {
     //imprime el caracter seguido de la cantidad de espacios especificados
     space = fields->fZero == 1 ? '0' : ' ';
