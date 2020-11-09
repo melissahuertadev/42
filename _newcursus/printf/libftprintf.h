@@ -11,7 +11,7 @@ It will manage the following conversions: cspdiuxX%
 	%s print a string of characters
 	%d print a decimal (base 10) number
 	%i print an integer in base 10
-	%u print an unsigned decimal (base 10) number %x print a number in hexidecimal (base 16)
+	%u print an unsigned decimal (base 10) number
 	%x print a number in hexidecimal (base 16)
 	%% print a percent sign (\% also works)
 
@@ -29,7 +29,7 @@ https://www.cplusplus.com/reference/cstdio/printf/
 
 typedef struct		s_fields
 {
-	int 	fNegative;
+	int 	fMinus;
 	int		fZero;
 	int		width;
 	int		wildcard;
@@ -40,15 +40,20 @@ typedef struct		s_fields
 
 //funciones ayudantes
 int		ft_putcharcounter(char c);
+void	ft_putunbr(unsigned int n);
+void	ft_putunbr_fd(unsigned int n, int fd);
 
 //funciones PRINTERS FLAGS
 int		pft_spaces(int cant, char c);
 
 //funciones PRINTERS SPEC
-int		ptf_char(t_fields *attr, va_list args_list);
+int		ptf_char(t_fields *attr, int c);
 int		ptf_str(t_fields *fields, va_list args_list);
 int		ptf_dcm(t_fields *ffields, va_list args_list);
+int		ptf_uns_dcm(t_fields *ffields, unsigned int nbr);
 
+/* 
+int		ptf_uns_hexa(t_fields *ffields, va_list args_list); */
 int		ft_putspecifier(t_fields *attr, va_list args_list);
 
 //funciones que gestionan los campos flags, width, precision
