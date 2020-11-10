@@ -49,15 +49,15 @@ void	pft_setpadding(t_fields *fields, int len);
 
 //funciones PRINTERS FLAGS
 int		pft_spaces(int cant, char c);
-void	pft_unsigned(t_fields *fields, int code, char *s, unsigned int nbr);
+void	pft_unsigned(t_fields *fields, int c, char *s, unsigned int n);
 
 //funciones PRINTERS SPEC
-int		ptf_char(t_fields *attr, int c);
+int		ptf_char(t_fields *fields, int c);
 int		ptf_str(t_fields *fields, char *str);
 int		ptf_dcm(t_fields *fields, va_list args_list);
-int		ptf_uns_dcm(t_fields *fields, unsigned int nbr);
-int		ptf_uns_hexa(t_fields *fields, unsigned int nbr);
-int		ft_putspecifier(t_fields *attr, va_list args_list);
+int		ptf_uns_dcm(t_fields *fields, unsigned int n);
+int		ptf_uns_hexa(t_fields *fields, unsigned int n);
+int		ptf_ptr(t_fields *fields, void *ptr);
 
 //funciones que gestionan los campos flags, width, precision
 void	ptf_initfields(t_fields *attr);
@@ -67,5 +67,6 @@ void	pft_setflags(t_fields *attr, const char fmt, va_list args_list);
 //función MAESTRA
 int		ft_printf(const char *format, ...);
 int		pft_putfields(t_fields *attr, const char *fmt, va_list args_list);
+int		ft_putspecifier(t_fields *attr, va_list args_list);
 
 #endif

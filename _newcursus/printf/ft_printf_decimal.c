@@ -6,7 +6,7 @@
 /*   By: mhuerta <mhuerta@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 11:18:20 by mhuerta           #+#    #+#             */
-/*   Updated: 2020/11/09 01:30:18 by mhuerta          ###   ########.fr       */
+/*   Updated: 2020/11/10 01:40:06 by mhuerta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ int ptf_dcm(t_fields *fields, va_list args_list){
   if(fields->fMinus == 0){
     pft_spaces(qSpaces + 1, ' ');
   }
-  if(dec < 0){
+  if(dec < 0 && dec != -2147483648){
     dec *= -1;
     ft_putchar('-');
   }

@@ -6,7 +6,7 @@
 /*   By: mhuerta <mhuerta@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/05 18:19:01 by mhuerta           #+#    #+#             */
-/*   Updated: 2020/11/09 16:11:52 by mhuerta          ###   ########.fr       */
+/*   Updated: 2020/11/10 00:48:23 by mhuerta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -211,8 +211,37 @@ void    ptf_tst_hexa(){
     printf("**** case 1: %%x %%X values given: 1561, 1561 **\n");
     printf ("sysprintf    ~ %x %X\n", 1561, 1561);
     ft_printf ("ft_printf    ~ %x %X\n\n", 1561, 1561);
+
+    printf("**** case 1: %%x valuee given: 8729171 **\n");
+    printf ("sysprintf    ~ %x\n", 8729171);
+    ft_printf ("ft_printf    ~ %x\n\n", 8729171);
+    
 }
 
+void ptf_tst_ptr(){
+    char *a = "mmmmmmmm";
+	char **p = &a;
+    
+    printf("********************************************\n");
+    printf("*************** TESTS x PTR ****************\n");
+    printf("********************************************\n");
+
+    printf("**** case 0: %%p value given: a **\n");
+    printf ("sysprintf    ~ %p\n", a);
+    ft_printf ("ft_printf    ~ %p\n\n", a);
+
+    printf("**** case 1: %%p value given: NULL **\n");
+    printf ("sysprintf    ~ %p\n", NULL);
+    ft_printf ("ft_printf    ~ %p\n\n", NULL);
+
+    printf("**** case 2: %%p value given: p **\n");
+    printf ("sysprintf    ~ %p\n", p);
+    ft_printf ("ft_printf    ~ %p\n\n", p);
+
+    printf("**** case 3: %%5p value given: 0 **\n");
+    printf ("sysprintf    ~ %5p\n", 0);
+    ft_printf ("ft_printf    ~ %5p\n\n", 0);
+}
 
 /*
  **** MAIN TO TEST 🍙 ****
@@ -221,14 +250,16 @@ void    ptf_tst_hexa(){
 int main(int ac, char const  **av){
     //flags: #-+`'0][width][precision][format character]
     
-    
-    /* ptf_tst_char();
+    /*
+    ptf_tst_char();
     ptf_tst_str();
     ptf_tst_dcm();
     ptf_tst_uns();
+    ptf_tst_hexa();
+    ptf_tst_ptr();
     */
 
-   ptf_tst_hexa();
+  ptf_tst_ptr();
 
     return 0;
 }

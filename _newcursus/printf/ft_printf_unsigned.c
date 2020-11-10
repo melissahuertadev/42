@@ -6,7 +6,7 @@
 /*   By: mhuerta <mhuerta@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/30 11:04:13 by mhuerta           #+#    #+#             */
-/*   Updated: 2020/11/09 20:57:14 by mhuerta          ###   ########.fr       */
+/*   Updated: 2020/11/10 00:56:00 by mhuerta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ int ptf_uns_hexa(t_fields *fields,  unsigned int dec) {
   } else 
     pft_setpadding(fields, len);
   
-  //printing
   pft_unsigned(fields, 2, hexadec, 0);
 
   return len;

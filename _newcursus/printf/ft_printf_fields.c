@@ -6,7 +6,7 @@
 /*   By: mhuerta <mhuerta@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 16:01:43 by mhuerta           #+#    #+#             */
-/*   Updated: 2020/11/09 20:29:55 by mhuerta          ###   ########.fr       */
+/*   Updated: 2020/11/10 02:04:44 by mhuerta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,8 +107,8 @@ int ft_putspecifier(t_fields *fields, va_list args)
     print_counter += ptf_uns_dcm(fields, va_arg(args, unsigned int));
   if(fields->spec == 'x' || fields->spec == 'X')
     print_counter += ptf_uns_hexa(fields, va_arg(args, unsigned int));
-  
-  //if(fields->spec == 'p')
+  if(fields->spec == 'p')
+    print_counter += ptf_ptr(fields, va_arg(args, void *));
     
   return (print_counter);
 }
