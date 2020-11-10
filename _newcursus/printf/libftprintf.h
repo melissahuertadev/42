@@ -35,6 +35,8 @@ typedef struct		s_fields
 	int		wildcard;
 	int		precision;
 	char	spec;
+	int		qSpaces;
+	int		qZeros;
 	int		q;
 }       			t_fields;
 
@@ -43,13 +45,14 @@ int		ft_putcharcounter(char c);
 void	ft_putunbr(unsigned int n);
 void	ft_putunbr_fd(unsigned int n, int fd);
 char	*ft_utoa_hexa(unsigned int n, char spec);
+void	pft_setpadding(t_fields *fields, int len);
 
 //funciones PRINTERS FLAGS
 int		pft_spaces(int cant, char c);
 
 //funciones PRINTERS SPEC
 int		ptf_char(t_fields *attr, int c);
-int		ptf_str(t_fields *fields, va_list args_list);
+int		ptf_str(t_fields *fields, char *str);
 int		ptf_dcm(t_fields *fields, va_list args_list);
 int		ptf_uns_dcm(t_fields *fields, unsigned int nbr);
 int		ptf_uns_hexa(t_fields *fields, unsigned int nbr);

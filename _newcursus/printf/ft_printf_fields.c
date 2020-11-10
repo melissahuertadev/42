@@ -6,7 +6,7 @@
 /*   By: mhuerta <mhuerta@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 16:01:43 by mhuerta           #+#    #+#             */
-/*   Updated: 2020/11/09 17:32:29 by mhuerta          ###   ########.fr       */
+/*   Updated: 2020/11/09 20:29:55 by mhuerta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ void ptf_initfields(t_fields *attr)
   attr->precision = -1;
   attr->wildcard = 0;
   attr->spec = '\0';
+  attr->qZeros = -1;
+  attr->qSpaces = -1;
   attr->q = 0;
 }
 
@@ -98,7 +100,7 @@ int ft_putspecifier(t_fields *fields, va_list args)
   if (fields->spec == 'c' || fields->spec == '%')
     print_counter += ptf_char(fields, fields->spec == 'c' ? va_arg(args, int) : '%');
   if(fields->spec == 's')
-    print_counter += ptf_str(fields, args);
+    print_counter += ptf_str(fields, va_arg(args, char *));
   if(fields->spec == 'd' || fields->spec == 'i')
     print_counter += ptf_dcm(fields, args);
   if(fields->spec == 'u')

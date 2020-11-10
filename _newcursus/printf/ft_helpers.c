@@ -6,7 +6,7 @@
 /*   By: mhuerta <mhuerta@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 17:18:51 by mhuerta           #+#    #+#             */
-/*   Updated: 2020/11/09 17:27:45 by mhuerta          ###   ########.fr       */
+/*   Updated: 2020/11/09 17:56:32 by mhuerta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ char	*ft_utoa_hexa(unsigned int n, char spec)
     conv = (spec == 'x') ? 'a' : 'A';
 	if (!(s = ft_strnew(l)))
 		return (NULL);
+    if (n == 0)
+        return "0";
 	while (n)
 	{
         l--;

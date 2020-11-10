@@ -6,7 +6,7 @@
 /*   By: mhuerta <mhuerta@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/12 19:18:57 by mhuerta           #+#    #+#             */
-/*   Updated: 2020/11/09 01:12:57 by mhuerta          ###   ########.fr       */
+/*   Updated: 2020/11/09 17:59:47 by mhuerta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,14 +39,12 @@
   ********************************************************************************
 */
     
-int ptf_str(t_fields *fields, va_list args_list){
+int ptf_str(t_fields *fields, char  *str){
   int len;
   int new_len;
-  char *str;
   char  space;
   int   ret;
   
-  str = va_arg(args_list, char *);
   if (str == NULL){
     str = "(null)";
   }
