@@ -6,7 +6,7 @@
 /*   By: mhuerta <mhuerta@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/30 11:04:13 by mhuerta           #+#    #+#             */
-/*   Updated: 2020/11/09 20:38:22 by mhuerta          ###   ########.fr       */
+/*   Updated: 2020/11/09 20:57:14 by mhuerta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,15 +24,7 @@ int		ptf_uns_dcm(t_fields *fields, unsigned int dec) {
   } else 
     pft_setpadding(fields, len);
 
-  //printing
-  if(fields->fMinus == 0){
-    pft_spaces(fields->qSpaces + 1, ' ');
-  }
-  pft_spaces(fields->qZeros + 1, '0');
-  ft_putunbr(dec);
-  if(fields->fMinus == 1){
-    pft_spaces(fields->qSpaces + 1, ' ');
-  }
+  pft_unsigned(fields, 1, "", dec);
   
   return len;
 }
@@ -53,14 +45,8 @@ int ptf_uns_hexa(t_fields *fields,  unsigned int dec) {
     pft_setpadding(fields, len);
   
   //printing
-  if(fields->fMinus == 0){
-    pft_spaces(fields->qSpaces + 1, ' ');
-  }
-  pft_spaces(fields->qZeros + 1, '0');
-  ft_putstr(hexadec);
-  if(fields->fMinus == 1){
-    pft_spaces(fields->qSpaces + 1, ' ');
-  }
+  pft_unsigned(fields, 2, hexadec, 0);
+
   return len;
 }
 
@@ -70,10 +56,9 @@ void pft_setpadding(t_fields *fields, int len){
   
   if(fields->width > 0 && fields->precision > 0){
     fields->qZeros = fields->precision - len;
+    fields->qSpaces = fields->width - len;
     if (fields->qZeros > 0)
-      fields->qSpaces = fields->width - len - fields->qZeros;
-    else 
-      fields->qSpaces = fields->width - len;
+      fields->qSpaces -= fields->qZeros;
   } else if (fields->width > 0){
     if(fields->fZero){
       fields->qZeros = fields->width - len;
@@ -82,4 +67,20 @@ void pft_setpadding(t_fields *fields, int len){
   } else if (fields->precision > 0){
     fields->qZeros = fields->precision - len;
   }
+}
+
+void	pft_unsigned(t_fields *fields, int code, char *s, unsigned int nbr){
+  if(fields->fMinus == 0){
+    pft_spaces(fields->qSpaces + 1, ' ');
+  }
+  pft_spaces(fields->qZeros + 1, '0');
+  if(code == 1)
+    ft_putunbr(nbr);
+  if(code == 2)
+    ft_putstr(s);
+  
+  if(fields->fMinus == 1){
+    pft_spaces(fields->qSpaces + 1, ' ');
+  }
+  
 }

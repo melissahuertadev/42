@@ -49,6 +49,7 @@ void	pft_setpadding(t_fields *fields, int len);
 
 //funciones PRINTERS FLAGS
 int		pft_spaces(int cant, char c);
+void	pft_unsigned(t_fields *fields, int code, char *s, unsigned int nbr);
 
 //funciones PRINTERS SPEC
 int		ptf_char(t_fields *attr, int c);
