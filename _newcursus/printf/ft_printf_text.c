@@ -6,7 +6,7 @@
 /*   By: mhuerta <mhuerta@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/12 19:18:57 by mhuerta           #+#    #+#             */
-/*   Updated: 2020/11/09 17:59:47 by mhuerta          ###   ########.fr       */
+/*   Updated: 2020/11/11 10:36:28 by mhuerta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,62 +39,82 @@
   ********************************************************************************
 */
     
-int ptf_str(t_fields *fields, char  *str){
-  int len;
-  int new_len;
-  char  space;
-  int   ret;
-  
-  if (str == NULL){
-    str = "(null)";
-  }
-		
-  len = ft_strlen(str);
-  new_len = (fields->precision >= 0 && fields->precision < len) ? fields->precision : len;
-  space = fields->fZero == 1 ? '0' : ' ';
-  ret = 0;
-  if(fields->width > new_len){
-    if(new_len == 0){
-      ret += pft_spaces(fields->width + 1, space);
-    } else if(fields->fMinus != 1){
-      ret += pft_spaces(fields->width - new_len + 1, space);
-      ft_putstr((const char *)ft_strsub(str, 0, new_len));
-    } else{
-      ft_putstr((const char *)ft_strsub(str, 0, new_len));
-      ret += pft_spaces(fields->width - new_len + 1, space);
-    }
-  } else
-    ft_putstr((const char *)ft_strsub(str, 0, new_len));
-    
-  ret += new_len;
-  return ret;
+int		ptf_str(t_fields *fields, char *str)
+{
+	int		len;
+	char	space;
+
+	fields->bytes = 0;
+	if (str == NULL)
+		str = "(null)";
+	len = ft_strlen(str);
+	if (fields->precision >= 0 && fields->precision < len)
+		len = fields->precision;
+	space = fields->fzero == 1 ? '0' : ' ';
+	if (fields->width > len)
+	{
+		if (len == 0)
+			fields->bytes += pft_spaces(fields->width + 1, space);
+		else
+			fields->bytes += ptf_str_left(fields, str, len);
+	}
+	else if (fields->width < 0)
+		fields->bytes += ptf_str_left(fields, str, len);
+	else
+		ft_putstr((const char *)ft_strsub(str, 0, len));
+	fields->bytes += len;
+	return (fields->bytes);
 }
 
-int ptf_char(t_fields *fields, int c)
+int		ptf_str_left(t_fields *fields, char *str, int new_len)
 {
-  int ret;
-  char  space;
+	char	space;
+	int		ret;
 
-  ret = 0;
-  space = ' ';
+	if (fields->width < 0)
+	{
+		fields->fminus = 1;
+		fields->width *= -1;
+	}
+	ret = 0;
+	space = fields->fzero == 1 ? '0' : ' ';
+	if (fields->fminus != 1)
+	{
+		ret += pft_spaces(fields->width - new_len + 1, space);
+		ft_putstr((const char *)ft_strsub(str, 0, new_len));
+	}
+	else
+	{
+		ft_putstr((const char *)ft_strsub(str, 0, new_len));
+		ret += pft_spaces(fields->width - new_len + 1, space);
+	}
+	return (ret);
+}
 
-  if (fields->fMinus == 1)
-  {
-    //imprime el caracter seguido de la cantidad de espacios especificados
-    space = fields->fZero == 1 ? '0' : ' ';
-    ft_putchar(c);
-    ret += pft_spaces(fields->width, space);
+int		ptf_char(t_fields *fields, int c)
+{
+	char	space;
 
-  }
-  else
-  {
-    //imprime la cantidad de espacios especificados seguido del caracter
-    space = fields->fZero == 1 ? '0' : ' ';
-    ret += pft_spaces(fields->width, space);
-    ft_putchar(c);
-  }
-  ret++;
-  return (ret);
+	fields->bytes = 0;
+	space = ' ';
+	space = fields->fzero == 1 ? '0' : ' ';
+	if (fields->width < 0)
+	{
+		fields->fminus = 1;
+		fields->width *= -1;
+	}
+	if (fields->fminus == 1)
+	{
+		ft_putchar(c);
+		fields->bytes += pft_spaces(fields->width, space);
+	}
+	else
+	{
+		fields->bytes += pft_spaces(fields->width, space);
+		ft_putchar(c);
+	}
+	fields->bytes++;
+	return (fields->bytes);
 }
 
 
