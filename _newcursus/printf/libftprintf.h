@@ -29,44 +29,52 @@ https://www.cplusplus.com/reference/cstdio/printf/
 
 typedef struct		s_fields
 {
-	int 	fMinus;
-	int		fZero;
-	int		width;
-	int		wildcard;
-	int		precision;
-	char	spec;
-	int		qSpaces;
-	int		qZeros;
-	int		q;
-}       			t_fields;
+	int				fminus;
+	int				fzero;
+	int				width;
+	int				wildcard;
+	int				precision;
+	char			spec;
+	int				qspaces;
+	int				qzeros;
+	int				bytes;
+	int				q;
+}					t_fields;
 
 //funciones ayudantes
-int		ft_putcharcounter(char c);
-void	ft_putunbr(unsigned int n);
-void	ft_putunbr_fd(unsigned int n, int fd);
-char	*ft_utoa_hexa(unsigned int n, char spec);
-void	pft_setpadding(t_fields *fields, int len);
+int					ft_putcharcounter(char c);
+void				ft_putunbr(unsigned int n);
+void				ft_putunbr_fd(unsigned int n, int fd);
+char				*ft_utoa_hexa(unsigned int n, char spec);
+void				pft_setpadding(t_fields *fields, int len);
 
 //funciones PRINTERS FLAGS
-int		pft_spaces(int cant, char c);
-void	pft_unsigned(t_fields *fields, int c, char *s, unsigned int n);
+int					pft_spaces(int cant, char c);
+void				pft_unsigned_char(t_fields *fields, char *s);
+void				pft_unsigned_int(t_fields *fields, unsigned int nbr);
 
 //funciones PRINTERS SPEC
-int		ptf_char(t_fields *fields, int c);
-int		ptf_str(t_fields *fields, char *str);
-int		ptf_dcm(t_fields *fields, va_list args_list);
-int		ptf_uns_dcm(t_fields *fields, unsigned int n);
-int		ptf_uns_hexa(t_fields *fields, unsigned int n);
-int		ptf_ptr(t_fields *fields, void *ptr);
+int					ptf_char(t_fields *fields, int c);
+int					ptf_str(t_fields *fields, char *str);
+int					ptf_str_left(t_fields *fields, char *str, int new_len);
+int					ptf_dcm(t_fields *fields, int dec);
+void				ptf_dcm_setpad(t_fields *fields, int len, int sign);
+void				ptf_dcm_printing(t_fields *fields, int dec);
+int					ptf_uns_dcm(t_fields *fields, unsigned int n);
+int					ptf_uns_hexa(t_fields *fields, unsigned int n);
+int					ptf_ptr(t_fields *fields, va_list args);
+int					ptf_ptr_aux(t_fields *fields, char	*s);
+int					ft_uintlen_ln(unsigned long n, unsigned int base);
+char				*ft_utoa_hexa_ln(unsigned long int n, char spec);
 
 //funciones que gestionan los campos flags, width, precision
-void	ptf_initfields(t_fields *attr);
-int		pft_setfields(t_fields *attr, const char *fmt, va_list args_list);
-void	pft_setflags(t_fields *attr, const char fmt, va_list args_list);
+void				ptf_initfields(t_fields *attr);
+int					pft_setfields(t_fields *attr, const char *f, va_list args);
+void				pft_setflags(t_fields *attr, const char fmt, va_list args);
 
 //función MAESTRA
-int		ft_printf(const char *format, ...);
-int		pft_putfields(t_fields *attr, const char *fmt, va_list args_list);
-int		ft_putspecifier(t_fields *attr, va_list args_list);
+int					ft_printf(const char *format, ...);
+int					pft_putfields(t_fields *attr, const char *f, va_list args);
+int					ft_putspecifier(t_fields *attr, va_list args_list);
 
 #endif
