@@ -32,13 +32,13 @@ char	*ft_utoa_hexa(unsigned int n, char spec)
 		return (NULL);
     if (n == 0)
         return "0";
-	while (n)
-	{
+    while (n)
+    {
         l--;
         tmp = (n % 16);
         s[l] = tmp < 10 ? '0' + tmp : conv + tmp - 10;
         n = n / 16;
     }
-    
-	return (s);
+
+    return (s);
 }
