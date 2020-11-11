@@ -6,7 +6,7 @@
 /*   By: mhuerta <mhuerta@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/05 18:19:01 by mhuerta           #+#    #+#             */
-/*   Updated: 2020/11/07 16:45:56 by mhuerta          ###   ########.fr       */
+/*   Updated: 2020/11/11 10:30:24 by mhuerta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,10 +66,13 @@ void    ptf_tst_char(){
 
     printf("**** case 6: %%03c. values given: 'f' ******\n");
     printf("printf    ~ %03c.\n", 'f');
-    ft_printf("ft_printf ~ %03c.\n\n",'f');
- 
+    ft_printf("ft_printf ~ %03c.\n\n",'f'); 
 
     printf("************ EXTRA TESTS x CHAR ************\n");
+    printf("**** case 6.b: %%03.1c. values given: 'f' ******\n");
+    printf("printf    ~ %03.1c.\n", 'f');
+    ft_printf("ft_printf ~ %03.1c.\n\n",'f');
+    
     printf("**** case 7: %%1c%%2c%%3c%%4c%%1c%%2c values given: ''\"',  '!', '\"', '#', '$', '%%' \n");
     printf("printf    ~ %1c%2c%3c%4c%1c%2c\n", '\"',  '!','\"', '#', '$', '%');
     ft_printf("ft_printf ~ %1c%2c%3c%4c%1c%2c\n", '\"', '!', '\"', '#', '$', '%');
@@ -128,16 +131,195 @@ void    ptf_tst_str(){
     
 }
 
+void    ptf_tst_dcm(){
+    printf("********************************************\n");
+    printf("*************** TESTS x DCM ***************\n");
+    printf("********************************************\n");
+
+    printf("**** case 0: %%d value given: 31 **\n");
+    printf ("sysprintf    ~ %d\n", 31);
+    ft_printf ("ft_printf    ~ %d\n\n", 31);
+
+    printf("**** case 1: %%d value given: -21 **\n");
+    printf ("sysprintf    ~ %d\n", -21);
+    ft_printf ("ft_printf    ~ %d\n\n", -21);
+
+    printf("**** case 2.a: %%7d value given: 42 **\n");
+    printf ("sysprintf    ~ %7d\n", 42);
+    ft_printf ("ft_printf    ~ %7d\n\n", 42);
+
+    printf("**** case 2.b: %%7d value given: -42 **\n");
+    printf ("sysprintf    ~ %7d\n", -42);
+    ft_printf ("ft_printf    ~ %7d\n\n", -42);
+
+    printf("**** case 3: %%-6d value given: 29 **\n");
+    printf ("sysprintf    ~ %-6d\n", 29);
+    ft_printf ("ft_printf    ~ %-6d\n\n", 29);
+
+    printf("**** case 4: %%.5d value given: 3 **\n");
+    printf ("sysprintf    ~ %.5d\n", 3);
+    ft_printf ("ft_printf    ~ %.5d\n\n", 3);
+
+    printf("**** case 5: %%.5d value given: -3 **\n");
+    printf ("sysprintf    ~ %.5d\n", -3);
+    ft_printf ("ft_printf    ~ %.5d\n\n", -3);
+
+    printf("**** case 6: %%05d value given: 19 **\n");
+    printf ("sysprintf    ~ %05d\n", 19);
+    ft_printf ("ft_printf    ~ %05d\n\n", 19);
+    
+    printf("**** case 7: %%05d value given: -19 **\n");
+    printf ("sysprintf    ~ %05d\n", -19);
+    ft_printf ("ft_printf    ~ %05d\n\n", -19);
+
+    printf("**** case 8: %%05.3d value given: 1 **\n");
+    printf ("sysprintf    ~ %05.3d\n", 1);
+    ft_printf ("ft_printf    ~ %05.3d\n\n", 1);
+
+    printf("**** case 9: %%05.3d value given: -1 **\n");
+    printf ("sysprintf    ~ %05.3d\n", -1);
+    ft_printf ("ft_printf    ~ %05.3d\n\n", -1);
+
+    printf("**** case 10: %%010.5d value given: -216 **\n");
+    printf ("sysprintf    ~ %010.5d\n", -216);
+    ft_printf ("ft_printf    ~ %010.5d\n\n", -216);
+
+    printf("**** case 11: %%10.5d value given: -216 **\n");
+    printf ("sysprintf    ~ %10.5d\n", -216);
+    ft_printf ("ft_printf    ~ %10.5d\n\n", -216);
+    
+    printf ("|%19.14i|\n", -42);
+    ft_printf ("|%19.14i|\n", -42);
+    printf ("|%19.1i|\n", -42);
+    ft_printf ("|%19.1i|\n", -42);
+    printf ("|%3.1i|\n", 10342);
+    ft_printf ("|%3.1i|\n", 10342);
+    printf ("|%0*i|\n", 2, 8);
+    ft_printf ("|%0*i|\n", 2, 8);
+    printf ("|%0*i|\n", -4, 8);
+    ft_printf ("|%0*i|\n", -4, 8);
+    ft_printf("%*c\n", 12, '-');
+}
+
+void    ptf_tst_uns(){
+    printf("********************************************\n");
+    printf("*************** TESTS x UNS ****************\n");
+    printf("********************************************\n");
+
+    printf("**** case 0: %%u value given: 4294967295u **\n");
+    printf ("sysprintf    ~ %u\n", 4294967295u);
+    ft_printf ("ft_printf    ~ %u\n\n", 4294967295u);
+}
+
+void    ptf_tst_hexa(){
+    printf("********************************************\n");
+    printf("*************** TESTS x HEXA ***************\n");
+    printf("********************************************\n");
+
+    printf("**** case 0: %%x %%Xvalues given: 42, 42 **\n");
+    printf ("sysprintf    ~ %x %X\n", 42, 42);
+    ft_printf ("ft_printf    ~ %x %X\n\n", 42, 42);
+
+    printf("**** case 1: %%x %%X values given: 1561, 1561 **\n");
+    printf ("sysprintf    ~ %x %X\n", 1561, 1561);
+    ft_printf ("ft_printf    ~ %x %X\n\n", 1561, 1561);
+
+    printf("**** case 1: %%x valuee given: 8729171 **\n");
+    printf ("sysprintf    ~ %x\n", 8729171);
+    ft_printf ("ft_printf    ~ %x\n\n", 8729171);
+    
+}
+
+void ptf_tst_ptr(){
+    char *a = "mmmmmmmm";
+	char **p = &a;
+    
+    printf("********************************************\n");
+    printf("*************** TESTS x PTR ****************\n");
+    printf("********************************************\n");
+
+    printf("**** case 0: %%p value given: a **\n");
+    printf ("sysprintf    ~ %p\n", a);
+    ft_printf ("ft_printf    ~ %p\n\n", a);
+
+    printf("**** case 1: %%p value given: NULL **\n");
+    printf ("sysprintf    ~ %p\n", NULL);
+    ft_printf ("ft_printf    ~ %p\n\n", NULL);
+
+    printf("**** case 2: %%p value given: p **\n");
+    printf ("sysprintf    ~ %p\n", p);
+    ft_printf ("ft_printf    ~ %p\n\n", p);
+
+    printf("**** case 3: %%5p value given: 0 **\n");
+    printf ("sysprintf    ~ %5p\n", 0);
+    ft_printf ("ft_printf    ~ %5p\n\n", 0);
+
+    printf("**** case 4: %%p value given: -20p **\n");
+    printf ("bytes: %d\n", printf ("sysprintf    ~ %-20p\n", p));
+    ft_printf ("bytes: %d\n\n", ft_printf ("ft_printf    ~ %-20p\n", p));
+
+    printf("**** case 5: %%*.p value given NULL\n");
+    printf("bytes: %d\n\n", printf ("%*.p\n",NULL));
+    ft_printf ("bytes: %d\n\n", ft_printf ("%*.p\n", NULL));
+
+    printf("**** case 6: %%*5.p value given NULL\n");
+    printf("bytes: %d\n\n", printf ("%*5.p\n",NULL));
+    ft_printf ("bytes: %d\n\n", ft_printf ("%*5.p\n", NULL));
+
+    printf("**** case 7: %%2.9p value given 1234\n");
+    printf("bytes: %d\n\n", printf ("%2.9p\n",1234));
+    ft_printf ("bytes: %d\n\n", ft_printf ("%2.9p\n", 1234));
+
+    printf("**** case 8: %%.5p value given NULL\n");
+    printf("bytes: %d\n\n", printf ("%.5p\n",0));
+    ft_printf ("bytes: %d\n\n", ft_printf ("%.5p\n", 0));
+}
+
+void    ptf_test_edge(){
+    printf("**** crash 1: value given %%5\n");
+    printf("bytes: %d\n", printf ("%5"));
+    ft_printf ("bytes: %d\n\n", ft_printf ("%5"));
+}
+
+void    ptf_test_dcm_1(){
+    printf("**** %%*.*i: value given -2, 0, 0\n");
+    printf("bytes: %d\n", printf ("%*.*i", -2, 0, 0));
+    ft_printf ("bytes: %d\n\n", ft_printf ("%*.*i", -2, 0, 0));
+
+    printf("**** %%*.*i: value given 2, 0, 0\n");
+    printf("bytes: %d\n", printf ("%*.*i", 2, 0, 0));
+    ft_printf ("bytes: %d\n\n", ft_printf ("%*.*i", 2, 0, 0));
+
+    ft_printf ("%*.*i\n", -2, 1, 8);
+    ft_printf ("%*.*d\n", -2, 1, 0);
+    ft_printf ("%0*.*d\n", -2, 1, 8);
+    ft_printf ("%*.*d\n", 3, 2, 8);
+    ft_printf ("%0*.*d\n", 3, 2, 8);
+    ft_printf ("%0*.*d\n", 4, 2, -12);
+    ft_printf ("%2i\n", 8);
+    ft_printf ("%2i\n", 8);
+    printf ("%0.d\n", 0);
+    ft_printf ("%0.d\n", 0);
+    printf ("%0*i\n", -4, 8);
+    ft_printf ("%0*i\n", -4, 8);
+    
+}
 
 /*
  **** MAIN TO TEST 🍙 ****
  flags: #-+`'0][width][precision][format character]
 */
 
-int main(int ac, char const  **av){
-    
+int main(int ac, char const  **av)
+{    
     ptf_tst_char();
     ptf_tst_str();
-    
+    ptf_tst_dcm();
+    ptf_tst_uns();
+    ptf_tst_hexa();
+    ptf_tst_ptr();
+    ptf_test_edge();
+    ptf_test_dcm_1();
+
     return 0;
 }
