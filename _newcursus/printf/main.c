@@ -307,11 +307,11 @@ void    ptf_test_dcm_1(){
 
 /*
  **** MAIN TO TEST 🍙 ****
+ flags: #-+`'0][width][precision][format character]
 */
 
-int main(int ac, char const  **av){
-    //flags: #-+`'0][width][precision][format character]
-    
+int main(int ac, char const  **av)
+{    
     ptf_tst_char();
     ptf_tst_str();
     ptf_tst_dcm();

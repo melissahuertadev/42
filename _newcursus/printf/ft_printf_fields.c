@@ -47,7 +47,6 @@ void	ptf_initfields(t_fields *attr)
 }
 
 
-//[flags: -0][width][precision][format character]
 int pft_setfields(t_fields *attr, const char *fmt, va_list args_list)
 {
   int spec_counter;
