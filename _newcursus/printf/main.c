@@ -6,7 +6,7 @@
 /*   By: mhuerta <mhuerta@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/05 18:19:01 by mhuerta           #+#    #+#             */
-/*   Updated: 2020/11/10 00:48:23 by mhuerta          ###   ########.fr       */
+/*   Updated: 2020/11/11 10:30:24 by mhuerta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -187,6 +187,18 @@ void    ptf_tst_dcm(){
     printf("**** case 11: %%10.5d value given: -216 **\n");
     printf ("sysprintf    ~ %10.5d\n", -216);
     ft_printf ("ft_printf    ~ %10.5d\n\n", -216);
+    
+    printf ("|%19.14i|\n", -42);
+    ft_printf ("|%19.14i|\n", -42);
+    printf ("|%19.1i|\n", -42);
+    ft_printf ("|%19.1i|\n", -42);
+    printf ("|%3.1i|\n", 10342);
+    ft_printf ("|%3.1i|\n", 10342);
+    printf ("|%0*i|\n", 2, 8);
+    ft_printf ("|%0*i|\n", 2, 8);
+    printf ("|%0*i|\n", -4, 8);
+    ft_printf ("|%0*i|\n", -4, 8);
+    ft_printf("%*c\n", 12, '-');
 }
 
 void    ptf_tst_uns(){
@@ -241,6 +253,56 @@ void ptf_tst_ptr(){
     printf("**** case 3: %%5p value given: 0 **\n");
     printf ("sysprintf    ~ %5p\n", 0);
     ft_printf ("ft_printf    ~ %5p\n\n", 0);
+
+    printf("**** case 4: %%p value given: -20p **\n");
+    printf ("bytes: %d\n", printf ("sysprintf    ~ %-20p\n", p));
+    ft_printf ("bytes: %d\n\n", ft_printf ("ft_printf    ~ %-20p\n", p));
+
+    printf("**** case 5: %%*.p value given NULL\n");
+    printf("bytes: %d\n\n", printf ("%*.p\n",NULL));
+    ft_printf ("bytes: %d\n\n", ft_printf ("%*.p\n", NULL));
+
+    printf("**** case 6: %%*5.p value given NULL\n");
+    printf("bytes: %d\n\n", printf ("%*5.p\n",NULL));
+    ft_printf ("bytes: %d\n\n", ft_printf ("%*5.p\n", NULL));
+
+    printf("**** case 7: %%2.9p value given 1234\n");
+    printf("bytes: %d\n\n", printf ("%2.9p\n",1234));
+    ft_printf ("bytes: %d\n\n", ft_printf ("%2.9p\n", 1234));
+
+    printf("**** case 8: %%.5p value given NULL\n");
+    printf("bytes: %d\n\n", printf ("%.5p\n",0));
+    ft_printf ("bytes: %d\n\n", ft_printf ("%.5p\n", 0));
+}
+
+void    ptf_test_edge(){
+    printf("**** crash 1: value given %%5\n");
+    printf("bytes: %d\n", printf ("%5"));
+    ft_printf ("bytes: %d\n\n", ft_printf ("%5"));
+}
+
+void    ptf_test_dcm_1(){
+    printf("**** %%*.*i: value given -2, 0, 0\n");
+    printf("bytes: %d\n", printf ("%*.*i", -2, 0, 0));
+    ft_printf ("bytes: %d\n\n", ft_printf ("%*.*i", -2, 0, 0));
+
+    printf("**** %%*.*i: value given 2, 0, 0\n");
+    printf("bytes: %d\n", printf ("%*.*i", 2, 0, 0));
+    ft_printf ("bytes: %d\n\n", ft_printf ("%*.*i", 2, 0, 0));
+
+    ft_printf ("%*.*i\n", -2, 1, 8);
+    ft_printf ("%*.*d\n", -2, 1, 0);
+    ft_printf ("%0*.*d\n", -2, 1, 8);
+    ft_printf ("%*.*d\n", 3, 2, 8);
+    ft_printf ("%0*.*d\n", 3, 2, 8);
+    ft_printf ("%0*.*d\n", 4, 2, -12);
+    ft_printf ("%2i\n", 8);
+    ft_printf ("%2i\n", 8);
+    printf ("%0.d\n", 0);
+    ft_printf ("%0.d\n", 0);
+    printf ("%0*i\n", -4, 8);
+    ft_printf ("%0*i\n", -4, 8);
+    
 }
 
 /*
@@ -250,16 +312,14 @@ void ptf_tst_ptr(){
 int main(int ac, char const  **av){
     //flags: #-+`'0][width][precision][format character]
     
-    /*
     ptf_tst_char();
     ptf_tst_str();
     ptf_tst_dcm();
     ptf_tst_uns();
     ptf_tst_hexa();
     ptf_tst_ptr();
-    */
-
-  ptf_tst_ptr();
+    ptf_test_edge();
+    ptf_test_dcm_1();
 
     return 0;
 }
