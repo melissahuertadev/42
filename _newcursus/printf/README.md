@@ -20,6 +20,17 @@ Flow chart 1.0
 
 <br><br>
 
+## Testing ~
+----
+Testers I used :)
+
+https://github.com/Mazoise/42TESTERS-PRINTF
+https://github.com/cclaude42/PFT_2019
+
+Tester I didn't use but it was used on my corrections 😭 and I passed it 😏
+
+https://github.com/t0mm4rx/ftprintfdestructor
+
 ### Requirements
 
 #### 🍙 For character
