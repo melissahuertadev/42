@@ -36,8 +36,6 @@ https://github.com/t0mm4rx/ftprintfdestructor
 #### 🍙 For character
 ---
 
-Those are the posible combinations
-
 | Case  | format        | args_list       | output expected        |   
 | ------|-------------- | --------------- | ---------------------- |
 | 0     | %c %-4cM      | '?', 42         | <pre>? *   M</pre>     |
@@ -47,6 +45,23 @@ Those are the posible combinations
 | 3     | %*c.          | 5, 'm'          | <pre>    m.</pre>      |  
 | 4     | %-*c.         | 5, 'm'          | <pre>m    .</pre>      |  
 | 5     | %03c.         | 'f'             | 00f.                   |
+
+#### 🍙 For string
+---
+
+| Case  | format        | args_list                   | output expected         |
+| ------|--------------- | --------------------------- | ----------------------  |
+| 0     | %s %s         | "hey my name is", "Melissa" | hey my name is Melissa  |
+| 1     | %9s           | "Melissa"                   | <pre>  Melissa</pre>    |
+| 2     | %9s %3s       | "Melissa", "H"              | <pre>  Melissa   H</pre>|
+| 3     | %-8s          | "Meli"                      | <pre>Meli    </pre>     |
+| 4     | %-0s          | "Meli"                      | <pre>Meli</pre>         |
+| 5     | %*s           | 6, "Meli"                   | <pre>  Meli</pre>       |
+| 6     | %5.3s         | "banana"                    | <pre>  ban</pre>        |
+| 7     | %.3s          | "hello"                     | <pre>hel</pre>          |
+| 8     | %10.s         | NULL                        | <pre>          </pre>   |
+| 9     | %.*s          | -3, NULL                    | <pre>(null)</pre>       |
+| 10    | %s            | "testing testing"           | <pre>testing testing</pre>|
 
 Once there is % found, the order to analyze is:
 1. Check if there is a '-' flag
