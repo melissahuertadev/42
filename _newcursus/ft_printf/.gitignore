@@ -1,0 +1,16 @@
+#libftcomplete <- is another project from the old cursus
+libftcomplete
+
+#notes
+notes
+
+#temp
+*.out
+
+#testers
+pft*
+42TESTERS-PRINTF
+*.a
+*.o
+*.apft/
+pft/
