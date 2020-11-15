@@ -6,7 +6,7 @@
 /*   By: mhuerta <mhuerta@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 16:01:43 by mhuerta           #+#    #+#             */
-/*   Updated: 2020/11/11 10:39:44 by mhuerta          ###   ########.fr       */
+/*   Updated: 2020/11/14 20:34:57 by mhuerta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,12 +53,12 @@ int pft_setfields(t_fields *attr, const char *fmt, va_list args_list)
 
   spec_counter = 0;
   
-  while (*fmt == '-' || *fmt == '.' || *fmt == '*' || ft_isdigit(*fmt)){
+  while (*fmt == '-' || *fmt == '.' || *fmt == '*' || ft_isdigit(*fmt))
+  {
     pft_setflags(attr, *fmt, args_list);
     fmt++;
     spec_counter++;
   }
-  
   attr->spec = *fmt;
   return spec_counter;
 }
@@ -67,14 +67,10 @@ void	pft_setflags(t_fields *attr, const char fmt, va_list args_list)
 {
 	if (fmt == '-')
 		attr->fminus = 1;
-	else if (fmt == '0' && attr->width == 0)
-	{
+	else if (fmt == '0' && attr->width == 0 && attr->precision == -1)
 		attr->fzero = (attr->fminus == 1) ? 0 : 1;
-	}
 	else if (fmt == '.')
-	{
 		attr->precision = 0;
-	}
 	else if (ft_isdigit(fmt))
 	{
 		if (attr->precision == -1)

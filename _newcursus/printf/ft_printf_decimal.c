@@ -6,7 +6,7 @@
 /*   By: mhuerta <mhuerta@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 11:18:20 by mhuerta           #+#    #+#             */
-/*   Updated: 2020/11/11 10:41:02 by mhuerta          ###   ########.fr       */
+/*   Updated: 2020/11/14 20:33:55 by mhuerta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,10 +80,16 @@ void	ptf_dcm_printing(t_fields *fields, int dec)
 		fields->bytes++;
 	}
 	fields->bytes += pft_spaces(fields->qzeros + 1, '0');
-	ft_putnbr(dec);
-	fields->bytes += ft_intlen(dec);
-	if (fields->fminus == 1)
+	if (dec == -2147483648 && fields->qzeros)
 	{
-		fields->bytes += pft_spaces(fields->qspaces + 1, ' ');
+		ft_putstr("2147483648");
+		fields->bytes += 10;
 	}
+	else
+	{
+		ft_putnbr(dec);
+		fields->bytes += ft_intlen(dec);
+	}
+	if (fields->fminus == 1)
+		fields->bytes += pft_spaces(fields->qspaces + 1, ' ');
 }

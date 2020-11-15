@@ -6,7 +6,7 @@
 /*   By: mhuerta <mhuerta@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/06 01:31:58 by mhuerta           #+#    #+#             */
-/*   Updated: 2020/11/07 17:10:55 by mhuerta          ###   ########.fr       */
+/*   Updated: 2020/11/14 20:37:59 by mhuerta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,9 @@ int ft_printf(char const *format, ...)
     {
       format++;
       format += pft_putfields(&attr, format, args_list);
-      ret += attr.q;
+      if (*format == '\0')
+				break ;
+			ret += attr.q;
     }
     else
       ret += ft_putcharcounter(*format);
