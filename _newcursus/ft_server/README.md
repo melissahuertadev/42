@@ -15,4 +15,33 @@
 - [ ] The server should be able to use the SSL protocol.
 - [ ] Make sure that, depending on the url, the server redirects to the
 correct website.
-- [ ] Make sure your server is running with an autoindex that must be able to be disabled.
+
+## Learning
+
+**What is a dockerfile?**
+
+A Dockerfile set instructions (commands) to build images automatically.
+
+https://docs.docker.com/get-started/overview/
+
+
+-----------------
+Dockerfile should build the container, you can’t use docker-compose.
+All the necessary files for your WordPress website should be in the folder srcs.
+
+
+- [x] The container OS must be debian buster.
+- [ ] You must set up a web server with Nginx, in only one docker container.
+
+
+- [ ] Your web server must be able to run several services at the same time.
+ The services will be a WordPress website, phpMyAdmin and MySQL.
+ You will need to make sure your SQL database works with the WordPress and phpMyAdmin.
+
+- [ ] Your server should be able to use the SSL protocol.
+- [ ] You will have to make sure that, depending on the url, your server redirects to the
+correct website.
+
+- [ ] You will also need to make sure your server is running with an autoindex that must be able to be disabled.
+
+https://www.youtube.com/watch?v=LQjaJINkQXY
