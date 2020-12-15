@@ -16,7 +16,7 @@
 ---
 Flow chart 1.0   
    
-<img src="https://github.com/piratelicorne/42/blob/master/_newcursus/printf/img/printf-fc-0.png" width="1020px">  
+<img src="https://github.com/piratelicorne/42/blob/master/_newcursus/ft_printf/img/printf-fc-0.png" width="1020px">  
 
 <br><br>
 
