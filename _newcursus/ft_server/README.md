@@ -18,9 +18,6 @@ https://www.youtube.com/watch?v=LQjaJINkQXY
 
 ## Solving ~
 
-- Dockerfile should build the container, you can’t use docker-compose.
-- All the necessary files for your WordPress website should be in the folder srcs.
-
 - [x] The container OS must be debian buster.
 - [x] You must set up a web server with Nginx, in only one docker container.
 - [x] Your web server must be able to run several services at the same time.
