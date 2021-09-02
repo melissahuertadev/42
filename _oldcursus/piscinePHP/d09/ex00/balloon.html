@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Balloon</title>
+        <style>
+            body {
+                height: 900px;
+            }
+            div#container {
+                padding-top: 21%;
+                height: 70%;
+            }
+            div#balloon {
+                height: 200px;
+                width: 200px;
+                background-color: red;
+                border-radius: 60%;
+                margin: 0 auto;
+            }
+        </style>
+
+         <!--
+        When a click occurs on the balloon, its size will grow by 10px while keeping its round shape.
+        With each click its color will go in that order from red to green, then blue and back to red again.
+        Usually, this type of balloon is rather resistant but if its size becomes greater than 420px 
+        it will explode and return to its original size.
+        
+        Small additional detail, when the mouse is in the balloon and leaves it,
+        the size of the balloon shrinks by 5px (the size of the balloon cannot go lower than 200px)
+        and its color changes in the reverse order than mentioned earlier.
+        -->
+
+        <script>
+            var diameter = 200;
+            const color_transition = ["red", "green", "blue"]
+            var i = 0;
+
+            function tobig() {
+                diameter += 10;
+                if (diameter > 420)
+                    diameter = 200;
+                i++;
+                if (i > 2)
+                    i = 0;
+                action();
+            }
+
+            function tosmall() {
+                diameter -= 5;
+                if (diameter < 200)
+                    diameter = 200;
+                i--;
+                if (i < 0)
+                    i = 2;
+                action();
+            }
+
+            function action() {
+			    balloon.style.height = diameter + 'px';
+			    balloon.style.width = diameter + 'px';
+                balloon.style.backgroundColor = color_transition[i];
+		    }
+        
+        </script>
+
+
+    </head>
+    <body>
+        <!-- Create in HTML/CSS a div 200px by 200px with a red background color.
+        The borders will be rounded to create a perfect round shape and not a square anymore.
+        -->
+        <div id= container>
+            <div id="balloon"onclick="tobig()" onmouseleave="tosmall()"></div>
+        </div>
+
+    </body>
+</html>

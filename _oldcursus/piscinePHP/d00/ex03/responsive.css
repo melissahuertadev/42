@@ -1,0 +1,93 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+section#wrap {
+    widows: 100%;
+    justify-content: center;
+}
+
+#pertable {
+    width: 70%;
+    padding: 1vw;
+    margin-right: 0vw;
+    float: left;
+}
+
+#memdel {
+    padding: 1vw;
+    float: right;
+}
+
+img {
+    width: 20%;
+}
+
+h1 {
+    font-family:"Trebuchet MS";
+    font-size: 6vw;
+    color:white;
+    text-align: center;
+}
+tr, td {
+    border: 0.1vw solid grey;
+    text-align: center;
+    width: 5vw;
+    height: 5vw;
+    color:rgb(37, 34, 34);
+}
+td#off {
+    border: 0px;
+}
+td#non-metals {
+    background-color: rgb(119, 98, 236);
+}
+td#alkali-metals {
+    background-color: darksalmon;
+}
+td#noble-gas {
+    background-color: #47c1f1;
+}
+td#alkali-earth {
+    background-color: #f1eaa3;
+}
+td#semi-metal {
+    background-color: #59f0ca;
+}
+td#halogen {
+    background-color: #d287f5;
+}
+td#basic-metal {
+    background-color: #acdf36;
+}
+td#transition-metal {
+    background-color: #87f17d;
+}
+td#gr {
+    background-color: #c9c6cc;
+}
+td#one {
+    background-color: #709ef3;
+}
+td#two {
+    background-color: #d8bae9;
+}
+div {
+    font-family:"Trebuchet MS";
+}
+
+div#ele-aw {
+    font-size: 0.5vw;
+    text-align: right;
+    padding-right: 0.1vw;
+}
+div#ele-an {
+    font-size: 0.5vw;
+    text-align: left;
+    padding-left: 0.1vw;
+}
+div#ele-name {
+    font-weight: bold;
+    font-size: 1vw;
+}

@@ -1,0 +1,170 @@
+#container {
+    width: 1430px;
+    height: 770px;
+    margin: 0 auto;
+}
+
+#header {
+    height: 125px;
+    margin-top: 17px;
+    margin-bottom: 17px;
+    padding-top: 10px;
+    border-radius: 12px;
+    background-color: #909090;
+    box-shadow: 10px 10px 10px black;
+}
+
+#dayft {
+    height: 111px;
+    float: left;
+    margin-left: 26px;
+}
+
+#mglass {
+    float: right;
+}
+
+#opt {
+    float: right;
+    width: 33px;
+    height: 138px;
+}
+
+#reload {
+    height: 22px;
+    padding-bottom: 35px;
+}
+
+#close {
+    height: 22px;
+    padding-top: 32px;
+}
+
+#content {
+    height: 619px;
+}
+
+#navleft {
+    width: 140px;
+    height: 427px;
+    left: 0px;
+    float: left;
+    margin-left: 20px;
+    padding-top: 10px;
+    background-color: #909090;
+    box-shadow: 10px 10px 10px black;
+    border-radius: 12px;
+}
+
+#iconlist {
+    margin: 0 auto;
+    width: 70px;
+}
+
+.box1 {
+    padding: 9px;
+    height: 60px;
+    width: 60px;
+}
+
+img#oeil {
+    border-style: solid;
+    border-width: 5px;
+    border-radius: 5px;
+    border-color: red;
+    padding: 2px;
+}
+
+#main {
+    width: 1044px;
+    margin-left: 30px;
+    float: left;
+    background-color: #909090;
+    box-shadow: 10px 10px 10px black;
+    border-radius: 12px;
+}
+
+.classroom {
+    padding: 10px;
+    width: 1024px;
+    
+}
+
+map {
+    display: inline;
+}
+
+#navright {
+    width: 140px;
+    height: 427px;
+    margin-left: 30px;
+    float: left;
+    right: 0px;    
+    margin-right: 20px;
+    background-color: #909090;
+    box-shadow: 10px 10px 10px black;
+    border-radius: 12px;
+}
+
+#book {
+    margin-top: 18px;
+    height: 87px;
+}
+
+#towel {
+    margin-top: 18px;
+    height: 54px;
+}
+
+#brick {
+    margin-left: -25px;
+    margin-top: 10px;
+    padding-top: 18px;
+    background-repeat: repeat;
+    background-image: url("resources/brick.jpg");
+    height: 50px;
+    width: 122px;
+}
+
+#inputform {
+    width: 448px;
+    height: 160px;
+    position: relative;
+    background-color: #88ff8a;
+    box-shadow: 10px 10px 10px black;
+    border-radius: 12px;
+    padding-left: 10px;
+    margin-top: -100px;
+}
+
+#pform {
+    font-family: Verdana;
+    font-size: 14px;
+    position: fixed;
+}
+
+p {
+    width: 500px;
+}
+
+#span1 {
+    font-family: 'Georgia';
+    font-size: 33px;
+}
+
+#span2 {
+    text-shadow: 4px 5px 4px red;
+}
+
+#answer1 {
+    width: 310px;
+    height: 17px;
+    border-style: inset;
+    border-bottom: 3px;
+}
+
+#but1 {
+    font-size: 16px;
+    margin-left: 8px;
+    font-family: 'Courier New';
+}

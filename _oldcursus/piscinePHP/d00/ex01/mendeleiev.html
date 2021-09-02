@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title> Mendeleiev's Periodic Table</title>
+        <style>
+            h1 {
+                font-family:"Trebuchet MS";
+                font-size: 30px;
+                color:white;
+                text-align: center;
+            }
+            tr, td {
+                border: 0.5px solid grey;
+                text-align: center;
+                width: 35px;
+                height: 35px;
+                padding: 10px;
+                color:rgb(37, 34, 34);
+            }
+            td#off {
+                border: 0px;
+            }
+            td#non-metals {
+                background-color: rgb(119, 98, 236);
+            }
+            td#alkali-metals {
+                background-color: darksalmon;
+            }
+            td#noble-gas {
+                background-color: #47c1f1;
+            }
+            td#alkali-earth {
+                background-color: #f1eaa3;
+            }
+            td#semi-metal {
+                background-color: #59f0ca;
+            }
+            td#halogen {
+                background-color: #d287f5;
+            }
+            td#basic-metal {
+                background-color: #acdf36;
+            }
+            td#transition-metal {
+                background-color: #87f17d;
+            }
+            td#gr {
+                background-color: #c9c6cc;
+            }
+            td#one {
+                background-color: #709ef3;
+            }
+            td#two {
+                background-color: #d8bae9;
+            }
+            div {
+                font-family:"Trebuchet MS";
+            }
+            section#wrap {
+                display: flex;
+                justify-content: center;
+            }
+            img {
+                width: 300px;
+                margin-left: 10px;
+                margin-top: 30px;
+            }
+            div#ele-aw {
+                font-size: 7px;
+                margin-right: -8px;
+                text-align: right;
+            }
+            div#ele-an {
+                font-size: 7px;
+                margin-left: -6px;
+                text-align: left;
+            }
+            div#ele-name {
+                font-weight: bold;
+            }
+        </style>
+    </head>
+
+    <body bgcolor="5e5c55">
+        <h1> Periodic Table </h1>
+        <section id="wrap">
+            <div>
+                <table>
+                    <tr id="r1">
+                        <td id="non-metals">
+                            <div id="ele-aw">1.00794</div>
+                            <div id="ele-name">H</div>
+                            <div id="ele-an">1</div>
+                        </td>
+                        <td id="off"></td>
+                        <td id="off"></td>
+                        <td id="off"></td>
+                        <td id="off"></td>
+                        <td id="off"></td>
+                        <td id="off"></td>
+                        <td id="off"></td>
+                        <td id="off"></td>
+                        <td id="off"></td>
+                        <td id="off"></td>
+                        <td id="off"></td>
+                        <td id="off"></td>
+                        <td id="off"></td>
+                        <td id="off"></td>
+                        <td id="off"></td>
+                        <td id="off"></td>
+                        <td id="noble-gas">
+                            <div id="ele-aw">4.002602</div>
+                            <div id="ele-name">He</div>
+                            <div id="ele-an">2</div>
+                        </td>
+                    </tr>
+            
+                    <tr id="r2">
+                        <td id="alkali-metals">
+                            <div id="ele-aw">6.941</div>
+                            <div id="ele-name">Li</div>
+                            <div id="ele-an">3</div>
+                        </td>
+                        <td id="alkali-earth">
+                            <div id="ele-aw">9.012182</div>
+                            <div id="ele-name">Be</div>
+                            <div id="ele-an">4</div>
+                         </td>
+                        <td id="off"></td>
+                        <td id="off"></td>
+                        <td id="off"></td>
+                        <td id="off"></td>
+                        <td id="off"></td>
+                        <td id="off"></td>
+                        <td id="off"></td>
+                        <td id="off"></td>
+                        <td id="off"></td>
+                        <td id="off"></td>
+                        <td id="semi-metal">
+                            <div id="ele-aw">10.811</div>
+                            <div id="ele-name">B</div>
+                            <div id="ele-an">5</div>
+                        </td>
+                        <td id="non-metals">
+                            <div id="ele-aw">12.0107</div>
+                            <div id="ele-name">C</div>
+                            <div id="ele-an">6</div>
+                        </td>
+                        <td id="non-metals">
+                            <div id="ele-aw">14.0067</div>
+                            <div id="ele-name">N</div>
+                            <div id="ele-an">7</div>
+                        </td>
+                        <td id="non-metals">
+                            <div id="ele-aw">15.9994</div>
+                            <div id="ele-name">O</div>
+                            <div id="ele-an">8</div>
+                        </td>
+                        <td id="halogen">
+                            <div id="ele-aw">18.998403</div>
+                            <div id="ele-name">F</div>
+                            <div id="ele-an">9</div>
+                        </td>
+                        <td id="noble-gas">
+                            <div id="ele-aw">20.1797</div>
+                            <div id="ele-name">Ne</div>
+                            <div id="ele-an">10</div>
+                        </td>
+                    </tr>
+            
+                    <tr id="r3">
+                        <td id="alkali-metals">
+                            <div id="ele-aw">22.98976</div>
+                            <div id="ele-name">Na</div>
+                            <div id="ele-an">11</div>
+                        </td>
+                        <td id="alkali-earth">
+                            <div id="ele-aw">24.3050</div>
+                            <div id="ele-name">Mg</div>
+                            <div id="ele-an">12</div>
+                        </td>
+                        <td id="off"></td>
+                        <td id="off"></td>
+                        <td id="off"></td>
+                        <td id="off"></td>
+                        <td id="off"></td>
+                        <td id="off"></td>
+                        <td id="off"></td>
+                        <td id="off"></td>
+                        <td id="off"></td>
+                        <td id="off"></td>
+                        <td id="basic-metal">
+                            <div id="ele-aw">26.98153</div>
+                            <div id="ele-name">Al</div>
+                            <div id="ele-an">13</div>
+                        </td>
+                        <td id="semi-metal">
+                            <div id="ele-aw">28.0855</div>
+                            <div id="ele-name">Si</div>
+                            <div id="ele-an">14</div>
+                        </td>
+                        <td id="non-metals">
+                            <div id="ele-aw">30.97696</div>
+                            <div id="ele-name">P</div>
+                            <div id="ele-an">15</div>
+                        </td>
+                        <td id="non-metals">
+                            <div id="ele-aw">32.065</div>
+                            <div id="ele-name">S</div>
+                            <div id="ele-an">16</div>
+                        </td>
+                        <td id="halogen">
+                            <div id="ele-aw">35.453</div>
+                            <div id="ele-name">Cl</div>
+                            <div id="ele-an">17</div>
+                        </td>
+                        <td id="noble-gas">
+                            <div id="ele-aw">39.948</div>
+                            <div id="ele-name">Ar</div>
+                            <div id="ele-an">18</div>
+                        </td>
+                    </tr>
+                    
+                    <tr id="r4">
+                        <td id="alkali-metals">
+                            <div id="ele-aw">39.0983</div>
+                            <div id="ele-name">K</div>
+                            <div id="ele-an">19</div>
+                        </td>
+                        <td id="alkali-earth">
+                            <div id="ele-aw">40.078</div>
+                            <div id="ele-name">Ca</div>
+                            <div id="ele-an">20</div>
+                        </td>
+                        <td id="transition-metal">
+                            <div id="ele-aw">44.95591</div>
+                            <div id="ele-name">Sc</div>
+                            <div id="ele-an">21</div>
+                        </td>
+                        <td id="transition-metal">
+                            <div id="ele-aw">47.867</div>
+                            <div id="ele-name">Ti</div>
+                            <div id="ele-an">22</div>
+                        </td>
+                        <td id="transition-metal">
+                            <div id="ele-aw">50.9415</div>
+                            <div id="ele-name">V</div>
+                            <div id="ele-an">23</div>
+                        </td>
+                        <td id="transition-metal">
+                            <div id="ele-aw">51.9962</div>
+                            <div id="ele-name">Cr</div>
+                            <div id="ele-an">24</div>
+                        </td>
+                        <td id="transition-metal">
+                            <div id="ele-aw">54.93804</div>
+                            <div id="ele-name">Mn</div>
+                            <div id="ele-an">25</div>
+                        </td>
+                        <td id="transition-metal">
+                            <div id="ele-aw">55.845</div>
+                            <div id="ele-name">Fe</div>
+                            <div id="ele-an">26</div>
+                        </td>
+                        <td id="transition-metal">
+                            <div id="ele-aw">58.93319</div>
+                            <div id="ele-name">Co</div>
+                            <div id="ele-an">27</div>
+                        </td>
+                        <td id="transition-metal">
+                            <div id="ele-aw">58.6934</div>
+                            <div id="ele-name">Ni</div>
+                            <div id="ele-an">28</div>
+                        </td>
+                        <td id="transition-metal">
+                            <div id="ele-aw">63.546</div>
+                            <div id="ele-name">Cu</div>
+                            <div id="ele-an">29</div>
+                        </td>
+                        <td id="transition-metal">
+                            <div id="ele-aw">65.38</div>
+                            <div id="ele-name">Zn</div>
+                            <div id="ele-an">30</div>
+                        </td>
+                        <td id="basic-metal">
+                            <div id="ele-aw">69.723</div>
+                            <div id="ele-name">Ga</div>
+                            <div id="ele-an">31</div>
+                        </td>
+                        <td id="semi-metal">
+                            <div id="ele-aw">72.64</div>
+                            <div id="ele-name">Ge</div>
+                            <div id="ele-an">32</div>
+                        </td>
+                        <td id="semi-metal">
+                            <div id="ele-aw">74.92160</div>
+                            <div id="ele-name">As</div>
+                            <div id="ele-an">33</div>
+                        </td>
+                        <td id="non-metals">
+                            <div id="ele-aw">78.96</div>
+                            <div id="ele-name">Se</div>
+                            <div id="ele-an">34</div>
+                        </td>
+                        <td id="halogen">
+                            <div id="ele-aw">79.904</div>
+                            <div id="ele-name">Br</div>
+                            <div id="ele-an">35</div>
+                        </td>
+                        <td id="noble-gas">
+                            <div id="ele-aw">83.798</div>
+                            <div id="ele-name">Kr</div>
+                            <div id="ele-an">36</div>
+                        </td>
+                    </tr>
+                    
+                    <tr id="r5">
+                        <td id="alkali-metals">
+                            <div id="ele-aw">85.4678</div>
+                            <div id="ele-name">Rb</div>
+                            <div id="ele-an">37</div>
+                        </td>
+                        <td id="alkali-earth">
+                            <div id="ele-aw">87.62</div>
+                            <div id="ele-name">Sr</div>
+                            <div id="ele-an">38</div>
+                        </td>
+                        <td id="transition-metal">
+                            <div id="ele-aw">88.90585</div>
+                            <div id="ele-name">Y</div>
+                            <div id="ele-an">39</div>
+                        </td>
+                        <td id="transition-metal">
+                            <div id="ele-aw">91.224</div>
+                            <div id="ele-name">Zr</div>
+                            <div id="ele-an">40</div>
+                        </td>
+                        <td id="transition-metal">
+                            <div id="ele-aw">92.90638</div>
+                            <div id="ele-name">Nb</div>
+                            <div id="ele-an">41</div>
+                        </td>
+                        <td id="transition-metal">
+                            <div id="ele-aw">95.96</div>
+                            <div id="ele-name">Mo</div>
+                            <div id="ele-an">42</div>
+                        </td>
+                        <td id="transition-metal">
+                            <div id="ele-aw">(98)</div>
+                            <div id="ele-name">Tc</div>
+                            <div id="ele-an">43</div>
+                        </td>
+                        <td id="transition-metal">
+                            <div id="ele-aw">101.07</div>
+                            <div id="ele-name">Ru</div>
+                            <div id="ele-an">44</div>
+                        </td>
+                        <td id="transition-metal">
+                            <div id="ele-aw">102.9055</div>
+                            <div id="ele-name">Rh</div>
+                            <div id="ele-an">45</div>
+                        </td>
+                        <td id="transition-metal">
+                            <div id="ele-aw">106.42</div>
+                            <div id="ele-name">Pd</div>
+                            <div id="ele-an">46</div>
+                        </td>
+                        <td id="transition-metal">
+                            <div id="ele-aw">107.8682</div>
+                            <div id="ele-name">Ag</div>
+                            <div id="ele-an">47</div>
+                        </td>
+                        <td id="transition-metal">
+                            <div id="ele-aw">112.441</div>
+                            <div id="ele-name">Cd</div>
+                            <div id="ele-an">48</div>
+                        </td>
+                        <td id="basic-metal">
+                            <div id="ele-aw">114.818</div>
+                            <div id="ele-name">In</div>
+                            <div id="ele-an">49</div>
+                        </td>
+                        <td id="basic-metal">
+                            <div id="ele-aw">118.710</div>
+                            <div id="ele-name">Sn</div>
+                            <div id="ele-an">50</div>
+                        </td>
+                        <td id="semi-metal">
+                            <div id="ele-aw">121.760</div>
+                            <div id="ele-name">Sb</div>
+                            <div id="ele-an">51</div>
+                        </td>
+                        <td id="semi-metal">
+                            <div id="ele-aw">127.6</div>
+                            <div id="ele-name">Te</div>
+                            <div id="ele-an">52</div>
+                        </td>
+                        <td id="halogen">
+                            <div id="ele-aw">126.9044</div>
+                            <div id="ele-name">I</div>
+                            <div id="ele-an">53</div>
+                        </td>
+                        <td id="noble-gas">
+                            <div id="ele-aw">131.293</div>
+                            <div id="ele-name">Xe</div>
+                            <div id="ele-an">54</div>
+                        </td>
+                    </tr>
+
+                    <tr id="r6">
+                        <td id="alkali-metals">
+                            <div id="ele-aw">132.9054</div>
+                            <div id="ele-name">Cs</div>
+                            <div id="ele-an">55</div>
+                        </td>
+                        <td id="alkali-earth">
+                            <div id="ele-aw">137.327</div>
+                            <div id="ele-name">Ba</div>
+                            <div id="ele-an">56</div>
+                        </td>
+                        <td id="transition-metal">
+                            <div id="ele-aw">174.9668</div>
+                            <div id="ele-name">Lu</div>
+                            <div id="ele-an">71</div>
+                        </td>
+                        <td id="transition-metal">
+                            <div id="ele-aw">178.49</div>
+                            <div id="ele-name">Hf</div>
+                            <div id="ele-an">72</div>
+                        </td>
+                        <td id="transition-metal">
+                            <div id="ele-aw">180.9478</div>
+                            <div id="ele-name">Ta</div>
+                            <div id="ele-an">73</div>
+                        </td>
+                        <td id="transition-metal">
+                            <div id="ele-aw">183.84</div>
+                            <div id="ele-name">W</div>
+                            <div id="ele-an">74</div>
+                        </td>
+                        <td id="transition-metal">
+                            <div id="ele-aw">186.207</div>
+                            <div id="ele-name">Re</div>
+                            <div id="ele-an">75</div>
+                        </td>
+                        <td id="transition-metal">
+                            <div id="ele-aw">190.23</div>
+                            <div id="ele-name">Os</div>
+                            <div id="ele-an">76</div>
+                        </td>
+                        <td id="transition-metal">
+                            <div id="ele-aw">192.217</div>
+                            <div id="ele-name">Ir</div>
+                            <div id="ele-an">77</div>
+                        </td>
+                        <td id="transition-metal">
+                            <div id="ele-aw">195.084</div>
+                            <div id="ele-name">Pt</div>
+                            <div id="ele-an">78</div>
+                        </td>
+                        <td id="transition-metal">
+                            <div id="ele-aw">196.9665</div>
+                            <div id="ele-name">Au</div>
+                            <div id="ele-an">79</div>
+                        </td>
+                        <td id="transition-metal">
+                            <div id="ele-aw">200.59</div>
+                            <div id="ele-name">Hg</div>
+                            <div id="ele-an">80</div>
+                        </td>
+                        <td id="basic-metal">
+                            <div id="ele-aw">204.3833</div>
+                            <div id="ele-name">Tl</div>
+                            <div id="ele-an">81</div>
+                        </td>
+                        <td id="basic-metal">
+                            <div id="ele-aw">207.2</div>
+                            <div id="ele-name">Pb</div>
+                            <div id="ele-an">82</div>
+                        </td>
+                        <td id="basic-metal">
+                            <div id="ele-aw">208.9804</div>
+                            <div id="ele-name">Bi</div>
+                            <div id="ele-an">83</div>
+                        </td>
+                        <td id="semi-metal">
+                            <div id="ele-aw">(210)</div>
+                            <div id="ele-name">Po</div>
+                            <div id="ele-an">84</div>
+                        </td>
+                        <td id="halogen">
+                            <div id="ele-aw">(210)</div>
+                            <div id="ele-name">At</div>
+                            <div id="ele-an">85</div>
+                        </td>
+                        <td id="noble-gas">
+                            <div id="ele-aw">(220)</div>
+                            <div id="ele-name">Rn</div>
+                            <div id="ele-an">86</div>
+                        </td>
+                    </tr>
+                    
+                    <tr id="r7">
+                        <td id="alkali-metals">
+                            <div id="ele-aw">(223)</div>
+                            <div id="ele-name">Fr</div>
+                            <div id="ele-an">87</div>
+                        </td>
+                        <td id="alkali-earth">
+                            <div id="ele-aw">(226)</div>
+                            <div id="ele-name">Ra</div>
+                            <div id="ele-an">88</div>
+                        </td>
+                        <td id="transition-metal">
+                            <div id="ele-aw">(262)</div>
+                            <div id="ele-name">Lr</div>
+                            <div id="ele-an">103</div>
+                        </td>
+                        <td id="transition-metal">
+                            <div id="ele-aw">(261)</div>
+                            <div id="ele-name">Rf</div>
+                            <div id="ele-an">104</div>
+                        </td>
+                        <td id="transition-metal">
+                            <div id="ele-aw">(262)</div>
+                            <div id="ele-name">Db</div>
+                            <div id="ele-an">105</div>
+                        </td>
+                        <td id="transition-metal">
+                            <div id="ele-aw">(266)</div>
+                            <div id="ele-name">Sg</div>
+                            <div id="ele-an">106</div>
+                        </td>
+                        <td id="transition-metal">
+                            <div id="ele-aw">(264)</div>
+                            <div id="ele-name">Bh</div>
+                            <div id="ele-an">107</div>
+                        </td>
+                        <td id="transition-metal">
+                            <div id="ele-aw">(277)</div>
+                            <div id="ele-name">Hs</div>
+                            <div id="ele-an">108</div>
+                        </td>
+                        <td id="transition-metal">
+                            <div id="ele-aw">(268)</div>
+                            <div id="ele-name">Mt</div>
+                            <div id="ele-an">109</div>
+                        </td>
+                        <td id="transition-metal">
+                            <div id="ele-aw">(271)</div>
+                            <div id="ele-name">Ds</div>
+                            <div id="ele-an">110</div>
+                        </td>
+                        <td id="transition-metal">
+                            <div id="ele-aw">(272)</div>
+                            <div id="ele-name">Rg</div>
+                            <div id="ele-an">111</div>
+                        </td>
+                        <td id="transition-metal">
+                            <div id="ele-aw">(285)</div>
+                            <div id="ele-name">Cn</div>
+                            <div id="ele-an">112</div>
+                        </td>               
+                        <td id="gr">
+                            <div id="ele-aw">(284)</div>
+                            <div id="ele-name">Uut</div>
+                            <div id="ele-an">113</div>
+                        </td>
+                        <td id="gr">
+                            <div id="ele-aw">(289)</div>
+                            <div id="ele-name">Fl</div>
+                            <div id="ele-an">114</div>
+                        </td>
+                        <td id="gr">
+                            <div id="ele-aw">(288)</div>
+                            <div id="ele-name">Uup</div>
+                            <div id="ele-an">115</div>
+                        </td>
+                        <td id="gr">
+                            <div id="ele-aw">(292)</div>
+                            <div id="ele-name">Lv</div>
+                            <div id="ele-an">116</div>
+                        </td>
+                        <td id="gr">
+                            <div id="ele-aw">.</div>
+                            <div id="ele-name">Uus</div>
+                            <div id="ele-an">117</div>
+                        </td>
+                        <td id="gr">
+                            <div id="ele-aw">(294)</div>
+                            <div id="ele-name">Uuo</div>
+                            <div id="ele-an">118</div>
+                        </td>
+                    </tr>
+    
+                    <tr style="height: 20px;"></tr> 
+
+                    <tr id="r8">
+                        <td id="off"></td>
+                        <td id="off"></td>
+                        <td id="off"></td>
+                        <td id="one">
+                            <div id="ele-aw">138.9054</div>
+                            <div id="ele-name">La</div>
+                            <div id="ele-an">57</div>
+                        </td>
+                        <td id="one">
+                            <div id="ele-aw">140.116</div>
+                            <div id="ele-name">Ce</div>
+                            <div id="ele-an">58</div>
+                        </td>
+                        <td id="one">
+                            <div id="ele-aw">140.9076</div>
+                            <div id="ele-name">Pr</div>
+                            <div id="ele-an">59</div>
+                        </td>
+                        <td id="one">
+                            <div id="ele-aw">144.242</div>
+                            <div id="ele-name">Nd</div>
+                            <div id="ele-an">60</div>
+                        </td>
+                        <td id="one">
+                            <div id="ele-aw">(145)</div>
+                            <div id="ele-name">Pm</div>
+                            <div id="ele-an">61</div>
+                        </td>
+                        <td id="one">
+                            <div id="ele-aw">150.36</div>
+                            <div id="ele-name">Sm</div>
+                            <div id="ele-an">62</div>
+                        </td id="one">
+                        <td id="one">
+                            <div id="ele-aw">151.964</div>
+                            <div id="ele-name">Eu</div>
+                            <div id="ele-an">63</div>
+                        </td>
+                        <td id="one">
+                            <div id="ele-aw">157.25</div>
+                            <div id="ele-name">Gd</div>
+                            <div id="ele-an">64</div>
+                        </td>
+                        <td id="one">
+                            <div id="ele-aw">158.9253</div>
+                            <div id="ele-name">Tb</div>
+                            <div id="ele-an">65</div>
+                        </td>
+                        <td id="one">
+                            <div id="ele-aw">162.500</div>
+                            <div id="ele-name">Dy</div>
+                            <div id="ele-an">66</div>
+                        </td>
+                        <td id="one">
+                            <div id="ele-aw">164.9303</div>
+                            <div id="ele-name">Ho</div>
+                            <div id="ele-an">67</div>
+                        </td>
+                        <td id="one">
+                            <div id="ele-aw">167.259</div>
+                            <div id="ele-name">Er</div>
+                            <div id="ele-an">68</div>
+                        </td>
+                        <td id="one">
+                            <div id="ele-aw">168.9342</div>
+                            <div id="ele-name">Tm</div>
+                            <div id="ele-an">69</div>
+                        </td>
+                        <td id="one">
+                            <div id="ele-aw">173.054</div>
+                            <div id="ele-name">Yb</div>
+                            <div id="ele-an">70</div>
+                        </td>
+                    </tr>
+            
+                    <tr id="r9">
+                        <td id="off"></td>
+                        <td id="off"></td>
+                        <td id="off"></td>
+                        <td id="two">
+                            <div id="ele-aw">(227)</div>
+                            <div id="ele-name">Ac</div>
+                            <div id="ele-an">89</div>
+                        </td>
+                        <td id="two">
+                            <div id="ele-aw">232.0380</div>
+                            <div id="ele-name">Th</div>
+                            <div id="ele-an">90</div>
+                        </td>
+                        <td id="two">
+                            <div id="ele-aw">231.0358</div>
+                            <div id="ele-name">Pa</div>
+                            <div id="ele-an">91</div>
+                        </td>
+                        <td id="two">
+                            <div id="ele-aw">238.0289</div>
+                            <div id="ele-name">U</div>
+                            <div id="ele-an">92</div>
+                        </td>
+                        <td id="two">
+                            <div id="ele-aw">(237)</div>
+                            <div id="ele-name">Np</div>
+                            <div id="ele-an">93</div>
+                        </td>
+                        <td id="two">
+                            <div id="ele-aw">(244)</div>
+                            <div id="ele-name">Pu</div>
+                            <div id="ele-an">94</div>
+                        </td>
+                        <td id="two">
+                            <div id="ele-aw">(243)</div>
+                            <div id="ele-name">Am</div>
+                            <div id="ele-an">95</div>
+                        </td>
+                        <td id="two">
+                            <div id="ele-aw">(247)</div>
+                            <div id="ele-name">Cm</div>
+                            <div id="ele-an">96</div>
+                        </td>
+                        <td id="two">
+                            <div id="ele-aw">(247)</div>
+                            <div id="ele-name">Bk</div>
+                            <div id="ele-an">97</div>
+                        </td>
+                        <td id="two">
+                            <div id="ele-aw">(251)</div>
+                            <div id="ele-name">Cf</div>
+                            <div id="ele-an">98</div>
+                        </td>
+                        <td id="two">
+                            <div id="ele-aw">(252)</div>
+                            <div id="ele-name">Es</div>
+                            <div id="ele-an">99</div>
+                        </td>
+                        <td id="two">
+                            <div id="ele-aw">(257)</div>
+                            <div id="ele-name">Fm</div>
+                            <div id="ele-an">100</div>
+                        </td>
+                        <td id="two">
+                            <div id="ele-aw">(258)</div>
+                            <div id="ele-name">Md</div>
+                            <div id="ele-an">101</div>
+                        </td>
+                        <td id="two">
+                            <div id="ele-aw">(259)</div>
+                            <div id="ele-name">No</div>
+                            <div id="ele-an">102</div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div>
+                <img src="https://render.fineartamerica.com/images/rendered/default/poster/8/10/break/images-medium-5/dmitri-mendeleev-caricature-science-photo-library.jpg">
+            </div>
+
+        </section>
+    </body>
+
+</html>
