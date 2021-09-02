@@ -1,0 +1,6 @@
+-> Identify the network devices between your computer and the slash16.org domain
+
+-> Command: traceroute slash16.org
+
+source: https://www.webhostface.com/kb/knowledgebase/use-traceroute-command/
+The traceroute command can show you the path a packet of information takes from your computer to a location you specify. 

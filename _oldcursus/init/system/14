@@ -1,0 +1,18 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    14                                                 :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: mhuerta <mhuerta@student.42.us.org>        +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2020/02/13 21:17:58 by mhuerta           #+#    #+#              #
+#    Updated: 2020/02/14 00:02:33 by mhuerta          ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+-> A command: 
+
+tail -f /var/log/syslog &
+
+and then consult with #jobs
+source: https://www.tecmint.com/run-linux-command-process-in-background-detach-process/

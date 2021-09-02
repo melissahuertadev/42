@@ -1,0 +1,5 @@
+-> What file contains the local DNS entries?
+
+-> A deduction, written in your own words: 
+
+The file that contains the DNS entries is resolv.conf (/etc/resolv.conf) which displays the information of the network connection (wifi, ethernet), it also gives instructions to view the DNS configuration.

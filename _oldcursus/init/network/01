@@ -1,0 +1,7 @@
+->  Get the list of the network interfaces of the machine without displaying any detail for these interfaces.
+    Only the list of names.
+
+-> Command: ifconfig -l
+
+**The -l flag can be used to list all available interfaces on the system, with no other additional information. Use of this flag is mutually exclusive with all other flags and commands, except for -d (only list interfaces that are down) and -u (only list interfaces that are up).
+**source: https://ss64.com/osx/ifconfig.html

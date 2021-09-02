@@ -1,0 +1,17 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    10                                                 :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: mhuerta <mhuerta@student.42.us.org>        +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2020/02/13 21:17:48 by mhuerta           #+#    #+#              #
+#    Updated: 2020/02/13 23:55:15 by mhuerta          ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+-> A command: 
+fdisk -t
+diskutil list (macOs)
+
+source: https://www.binarytides.com/linux-command-check-disk-partitions/

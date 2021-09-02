@@ -1,0 +1,18 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    07                                                 :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: mhuerta <mhuerta@student.42.us.org>        +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2020/02/13 21:17:24 by mhuerta           #+#    #+#              #
+#    Updated: 2020/02/13 23:38:14 by mhuerta          ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+-> A command: 
+cat /var/run/sshd.pid
+ps aux | grep -e /usr/sbin/sshd | grep -v grep | tr -s " " | cut -d " " -f2
+ps aux | grep -e /usr/sbin/sshd | tr -s " " | cut -d " " -f 2
+
+source: https://stackoverflow.com/questions/6867669/getting-pid-of-sshd

@@ -1,0 +1,14 @@
+-> Find the external IP of 42.fr
+
+-> Output command: 
+163.172.250.13
+163.172.250.12
+
+#of a website
+dig +short 42.fr
+- can be obtained by the Network Utility tool too.
+
+#of your own
+curl ifconfig.me ; echo
+- ; echo is to add a breakline
+- To consult your external IP, you can also could type "IP" 

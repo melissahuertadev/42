@@ -1,0 +1,17 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    03                                                 :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: mhuerta <mhuerta@student.42.us.org>        +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2020/02/13 21:16:35 by mhuerta           #+#    #+#              #
+#    Updated: 2020/02/13 23:02:01 by mhuerta          ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+-> A deduction, written in your own words: 
+To make it permanently we have to modify the file "hostname" 
+# vi /etc/hostname
+
+source: https://www.cyberciti.biz/faq/debian-change-hostname-permanently/

@@ -1,0 +1,10 @@
+-> Find the provider of slash16.org
+
+-> A deduction, written in your own words: 
+
+Command used:
+whois slash16.org | grep "Registrar"
+
+- WHOIS make a query on a database, that stores internet information as IP addresses, registered users, providers.
+
+- Information of provider is on the "Registrar" section. It can also be consulted in https://lookup.icann.org/lookup

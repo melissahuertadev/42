@@ -1,0 +1,5 @@
+-> Thanks to the previous question and the reverse DNS find the name of your host
+
+-> Output command: 
+
+By using either "dig -x MYIP +short" or "host MYIP", we obtain the name of our computer and the network domain, p.e: e1z3r1p4.42.us.org

@@ -1,0 +1,5 @@
+-> Make the intra.42.fr address reroute to 46.19.122.85
+
+-> A deduction, written in your own words: 
+
+Modify the file hosts by this command "sudo vim /etc/hosts" and add this line "46.19.122.85"

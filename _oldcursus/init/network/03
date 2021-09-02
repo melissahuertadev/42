@@ -1,0 +1,4 @@
+> Identify the MAC address of the Wi-Fi card
+
+-> Command: networksetup -listallhardwareports  //shows MAC addresses of all the connections
+-> Command: ifconfig en1 | grep "ether" | cut -d ' ' -f 2 //shows info of the Wifi and then we do grep and cut to only get the info we need.

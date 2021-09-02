@@ -1,0 +1,13 @@
+-> Identify and display the Ethernet interface characteristics:
+    (a) Identify broadcast address
+    (b) Identify all IP adresses which are part of the same subnet
+
+-> Command:
+    (a) ifconfig | grep "broadcast" | cut -d ' ' -f 6
+    (b) arp -a | cut -d ' ' -f 2
+
+**A broadcast address is an IP address that is used to target all systems on a specific subnet network instead of single hosts. In other words broadcast address allows information to be sent to all machines on a given subnet rather than to a specific machine.
+**The broadcast address of any IP address can be calculated by taking the bit compliment of the subnet mask, sometimes referred to as the reverse mask and then applying it with a bitwise OR calculation to the IP address in question.
+
+**arp - source: https://ss64.com/nt/arp.html , using the command on (b) it will display the addresses from the same subnet, you will probably see an 224 address called multicast address.
+**So, the full range of multicast addresses is from 224.0. 0.0 to 239.255. 255.255. Since multicast addresses represent a group of IP devices (sometimes called a host group) they can only be used as the destination of a datagram; never the source.

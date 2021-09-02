@@ -1,0 +1,12 @@
+-> Find the IP that was assigned to you by dhcp server
+
+-> Command: ifconfig getpacket en0
+
+The Dynamic Host Configuration Protocol (DHCP) is a network management protocol used on Internet Protocol networks whereby a DHCP server dynamically assigns an IP address and other network configuration parameters to each device on a network so they can communicate with other IP networks.
+It can be automate by DHCP or manually.
+
+server_indentifier (ip) = your DHCP server's IP address
+yiaddr = Your IP address
+siaddr = Server Address
+giaddr = gateway IP address
+chaddr = Hardware Address

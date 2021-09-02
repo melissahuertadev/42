@@ -1,0 +1,19 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    05                                                 :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: mhuerta <mhuerta@student.42.us.org>        +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2020/02/13 21:17:11 by mhuerta           #+#    #+#              #
+#    Updated: 2020/02/13 23:33:29 by mhuerta          ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+-> A command:
+sudo /etc/init.d/ssh status
+sudo service ssh status
+
+source: https://www.cyberciti.biz/faq/howto-start-stop-ssh-server/ (for question 6 too)
+
+SSH stands for Secure Shell and is a protocol for secure remote login and other secure network services over an insecure network

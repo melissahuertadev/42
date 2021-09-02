@@ -1,0 +1,12 @@
+-> Use the output of the previous command to find the name and IP address of the device that makes the link between you (local network) and the outside world
+
+-> A deduction, written in your own words: 
+
+To go out to Internet from a computer that is inside of a local network (in this case, a 42 computer), this computer makes a request, 
+this communication attemp is recognized as access to an external network, so is sent to the firewall, which send the same request 
+by protecting the computer with a public IP, this public IP can be assigned to any other computer from the same network.
+This is the NAT process.
+
+nat.42.us.org (10.90.1.11)  2.296 ms  1.259 ms  1.310 ms
+
+source (where you can read more): https://whatismyipaddress.com/nat

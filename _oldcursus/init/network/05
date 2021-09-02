@@ -1,0 +1,7 @@
+-> Identify the IP address of the DNS that responds to the following url: slash16.org
+
+-> Command: dig slash16.org +noall +answer
+
+**DNS: Domain Name System, the internet's phonebook. Humans access information online through domain names, like nytimes.com or espn.com. Web browsers interact through Internet Protocol (IP) addresses. DNS translates domain names to IP addresses so browsers can load Internet resources.
+**dig (domain information groper) interrogates DNS name servers
+**https://dnschecker.org/#A/slash16.org

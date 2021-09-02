@@ -1,0 +1,19 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    08                                                 :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: mhuerta <mhuerta@student.42.us.org>        +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2020/02/13 21:17:40 by mhuerta           #+#    #+#              #
+#    Updated: 2020/02/13 23:51:13 by mhuerta          ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+-> A deduction, written in your own words:
+
+SSH key pairs consists of a public and a private(client) key.
+The public key is stored in a remote server and the private is kept by the user
+on this file: ~/.ssh/authorized_keys
+
+source: https://www.ssh.com/ssh/authorized_keys/

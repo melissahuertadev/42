@@ -1,0 +1,17 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    04                                                 :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: mhuerta <mhuerta@student.42.us.org>        +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2020/02/13 21:16:53 by mhuerta           #+#    #+#              #
+#    Updated: 2020/02/13 23:06:47 by mhuerta          ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+-> A command:
+who -b
+last reboot | head -1
+
+source: https://www.cyberciti.biz/tips/linux-last-reboot-time-and-date-find-out.html

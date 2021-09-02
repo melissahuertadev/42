@@ -1,0 +1,19 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    01                                                 :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: mhuerta <mhuerta@student.42.us.org>        +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2020/02/13 21:16:03 by mhuerta           #+#    #+#              #
+#    Updated: 2020/02/13 22:57:14 by mhuerta          ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+-> A deduction, written in your own words:
+
+Read content on the "issue file" - cat /etc/issue
+
+More accurate info in "debian_version" - /etc/debian_version
+
+source: https://linuxconfig.org/check-what-debian-version-you-are-running-on-your-linux-system
