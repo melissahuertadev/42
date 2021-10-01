@@ -10,9 +10,9 @@ To set up a server with the minimum of services, ⚠️ a graphical interface is
 - Create at least 2 encrypted partitions using LVM
 - SELinux must be running at startup and its configuration has to be adapted for the project’s needs. AppArmor for Debian must be running at startup too.
 
-[Notes](#Notes)
-[Evaluation](#Evaluation)
-[SettingUp](#Setting-Up)
+[1. Notes](#Notes)   
+[2. Evaluation](#Evaluation)   
+[3. Solving](#Solving)   
 
 # Notes
 
@@ -33,7 +33,7 @@ to a group.
 - Explain how this script works. Interrupt it without modifying it.
 
 
-# Setting Up
+# Solving ~
 
 - [x] The hostname of your virtual machine must be your login ending with 42 ```(mhuerta42)```.
   
@@ -48,6 +48,9 @@ hostname: mhuerta42
 domain name: (empty)
 username: mhuerta
 ```
+
+<img src="https://github.com/melissahuerta/42/blob/dev/born2reboot/_newcursus/born2beroot/img/hostname.png" alt="install hostname" width="200"/>
+
 ![install hostname](https://github.com/melissahuerta/42/blob/dev/born2reboot/_newcursus/born2beroot/img/hostname.png)
 
 Create 2 partition disks:
