@@ -49,13 +49,12 @@ domain name: (empty)
 username: mhuerta
 ```
 
-<img src="https://github.com/melissahuerta/42/blob/dev/born2reboot/_newcursus/born2beroot/img/hostname.png" alt="install hostname" width="200"/>
+<img src="https://github.com/melissahuerta/42/blob/dev/born2reboot/_newcursus/born2beroot/img/hostname.png" alt="install hostname" width="500"/><br/>
 
-![install hostname](https://github.com/melissahuerta/42/blob/dev/born2reboot/_newcursus/born2beroot/img/hostname.png)
 
 Create 2 partition disks:
 
-![install partition](https://github.com/melissahuerta/42/blob/dev/born2reboot/_newcursus/born2beroot/img/partition-disks.png)
+<img src="https://github.com/melissahuerta/42/blob/dev/born2reboot/_newcursus/born2beroot/img/partition-disks.png" alt="install partition" width="500"/><br/>
 
 
 partition | size | use as
@@ -68,17 +67,19 @@ srv | 1G | Ext4 (mount: /srv)
 tmp | 1G | Ext4 (mount: /tmp)
 var-log | all disk space that left | Ext4 (manually mount: /var/log)
 
-![encryption volumes](https://github.com/melissahuerta/42/blob/dev/born2reboot/_newcursus/born2beroot/img/encr-volumes-1.png)
+<img src="https://github.com/melissahuerta/42/blob/dev/born2reboot/_newcursus/born2beroot/img/encr-volumes-1.png" alt="encryption volumes" width="500"/><br/>
 
-![encryption volumes mounted](https://github.com/melissahuerta/42/blob/dev/born2reboot/_newcursus/born2beroot/img/encr-volumes-2.png)
+<img src="https://github.com/melissahuerta/42/blob/dev/born2reboot/_newcursus/born2beroot/img/encr-volumes-2.png" alt="encryption volumes mounted" width="500"/><br/>
 
-![encryption volumes mounted](https://github.com/melissahuerta/42/blob/dev/born2reboot/_newcursus/born2beroot/img/lsblk_results.png)
-
+<img src="https://github.com/melissahuerta/42/blob/dev/born2reboot/_newcursus/born2beroot/img/lsblk_results.png" alt="lsblk results" width="500"/><br/>
 
 ### Requirements
 
 **General**
 - [x] A SSH service will be running on port 4242 only. For security reasons, it must not be possible to connect using SSH as root.
+  
+> SSH stands for Secure Shell. SSH is used for connecting to a remote computer accessing files and perform administrative tasks.
+
 ```
 $ sudo apt install openssh-server
 $ sudo nano /etc/ssh/sshd_config
@@ -87,10 +88,27 @@ $ sudo systemctl restart ssh
 ```
 
 ![sshd_config](https://github.com/melissahuerta/42/blob/dev/born2reboot/_newcursus/born2beroot/img/sshd_config.png)
-<br/><br/>
+<br/>
+
+[SSH configuration](https://phoenixnap.com/kb/how-to-enable-ssh-on-debian)
+<br/>
 
 
-- [ ] You have to configure your operating system with the UFW firewall and thus leave only port 4242 open.
+- [x] You have to configure your operating system with the UFW firewall and thus leave only port 4242 open.
+
+> UFW (Uncomplicated Firewall) is a user-friendly front-end for managing iptables firewall rules. Its main goal is to make managing iptables easier or, as the name says, uncomplicated
+
+```
+$ sudo apt install ufw
+$ sudo ufw status
+$ sudo ufw allow 4242
+$ sudo ufw enable
+```
+
+<img src="https://github.com/melissahuerta/42/blob/dev/born2reboot/_newcursus/born2beroot/img/ufw.png" alt="ufw results" width="400"/><br/>
+
+[+ UFW configuration](https://linuxize.com/post/how-to-setup-a-firewall-with-ufw-on-debian-10/)
+
 
 <br/><br/>
 - [ ] Implement a strong password policy.
