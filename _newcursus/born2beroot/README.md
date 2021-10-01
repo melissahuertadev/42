@@ -22,7 +22,6 @@ To set up a server with the minimum of services, ⚠️ a graphical interface is
 
    
 ## Evaluation ~
-----
 - Questions about the operating chosen (the differences between aptitude and apt, or what SELinux or AppArmor is).
 - Modification of the hostname.
 - Creation of a new user and assign it
@@ -32,13 +31,15 @@ to a group.
 
 
 ## Solving ~
----
 
 ### Setting up
+
+- [x] The hostname of your virtual machine must be your login ending with 42 ```(mhuerta42)```.
+  
 Name and OS: ```"born2beroot"  Linux-Debian(64-bit)```  
 Hard disk file type: ```VDI```  
 Storage and physical hard disk: ```Dynamically allocated```  
-   
+
 ### Installation & Setting up
 
 ```
@@ -71,14 +72,59 @@ var-log | all disk space that left | Ext4 (manually mount: /var/log)
 
 
 ### Requirements
-- [x] The hostname of your virtual machine must be your login ending with 42 ```(mhuerta42)```.
+
+**Security**
+- [x] A SSH service will be running on port 4242 only. For security reasons, it must not be possible to connect using SSH as root.
+```
+$ sudo apt install openssh-server
+$ sudo nano /etc/ssh/sshd_config
+$ sudo service ssh status
+$ sudo systemctl restart ssh
+```
+
+![sshd_config](https://github.com/melissahuerta/42/blob/dev/born2reboot/_newcursus/born2beroot/img/sshd_config.png)
+<br/><br/>
+
+
+- [ ] You have to configure your operating system with the UFW firewall and thus leave only port 4242 open.
+
+<br/><br/>
 - [ ] Implement a strong password policy.
 - [ ] Install and configure sudo following strict rules.
-- [ ] In addition to the root user, a user with your login as username has to be present. This user has to belong to the user42 and sudo groups.
-- [ ] A SSH service will be running on port 4242 only. For security reasons, it must not be possible to connect using SSH as root.
-- [ ] You have to configure your operating system with the UFW firewall and thus leave only port 4242 open.
+- [x] In addition to the root user, a user with your login as username has to be present. This user has to belong to the user42 and sudo groups.
+```
+$ su -l
+$ su - root
+```
+To add the user ```mhuerta``` into the ```sudo``` group:
+```
+$ usermod -aG sudo mhuerta
+OR
+$ sudo adduser foo sudo
+```
+To check all the users that belongs to the ```sudo``` and ```user42``` groups:
+```
+$ getent group sudo
+$ getent group user42
+```
+To check all the groups the current user belongs to:
+```
+$ groups
+```
+[Read about sudo](https://wiki.debian.org/sudo/)  
+[Read about sudo users](https://phoenixnap.com/kb/create-a-sudo-user-on-debian)   
+[Read about sudo vs su](https://phoenixnap.com/kb/sudo-vs-su-differences)
+
+<br/><br/>
+
+**Password policy:**
+
+
 - [ ] Create a script ```monitoring.sh```
   
+
+
+
 **Password policy:**
 - [ ] Your password has to expire every 30 days.
 - [ ] The minimum number of days allowed before the modification of a password will be set to 2.
@@ -112,3 +158,9 @@ var-log | all disk space that left | Ext4 (manually mount: /var/log)
 
 
 ## Learning ~
+
+## Testing ~
+
+- The use of SSH by setting up a new account.
+- Creation of a new user and assign it to a group.
+- Explain how this script works, interrupt it without modifying it.
