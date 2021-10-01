@@ -39,14 +39,35 @@ Name and OS: ```"born2beroot"  Linux-Debian(64-bit)```
 Hard disk file type: ```VDI```  
 Storage and physical hard disk: ```Dynamically allocated```  
    
-### Installation
+### Installation & Setting up
 
 ```
 hostname: mhuerta42
 domain name: (empty)
 username: mhuerta
 ```
-![install hostname](https://github.com/melissahuerta/42/tree/dev/born2reboot/_newcursus/born2reboot/img/conf-hostname.png)
+![install hostname](https://github.com/melissahuerta/42/blob/dev/born2reboot/_newcursus/born2beroot/img/hostname.png)
+
+Create 2 partition disks:
+
+![install partition](https://github.com/melissahuerta/42/blob/dev/born2reboot/_newcursus/born2beroot/img/partition-disks.png)
+
+
+partition | size | use as
+--- | --- | ---
+root | 2G | Ext4 (mount: /)
+swap | 1G | swap area
+home | 1G | Ext4 (mount: /home)
+var | 1G | Ext4 (mount: /var)
+srv | 1G | Ext4 (mount: /srv)
+tmp | 1G | Ext4 (mount: /tmp)
+var-log | all disk space that left | Ext4 (manually mount: /var/log)
+
+![encryption volumes](https://github.com/melissahuerta/42/blob/dev/born2reboot/_newcursus/born2beroot/img/encr-volumes-1.png)
+
+![encryption volumes mounted](https://github.com/melissahuerta/42/blob/dev/born2reboot/_newcursus/born2beroot/img/encr-volumes-2.png)
+
+![encryption volumes mounted](https://github.com/melissahuerta/42/blob/dev/born2reboot/_newcursus/born2beroot/img/lsblk_results.png)
 
 
 ### Requirements
