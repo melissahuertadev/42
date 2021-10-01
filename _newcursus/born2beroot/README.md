@@ -10,18 +10,21 @@ To set up a server with the minimum of services, ⚠️ a graphical interface is
 - Create at least 2 encrypted partitions using LVM
 - SELinux must be running at startup and its configuration has to be adapted for the project’s needs. AppArmor for Debian must be running at startup too.
 
-## Notes
+[Notes](#Notes)
+[Evaluation](#Evaluation)
+[SettingUp](#Setting-Up)
 
-#### SELinux | Security-Enhanced Linux
+# Notes
+
+## SELinux | Security-Enhanced Linux
 "SELinux is a security architecture for Linux® systems that allows administrators to have more control over who can access the system. (applications, processes, and files)"
 [+ Read more](https://www.redhat.com/en/topics/linux/what-is-selinux)
 
 
-#### AppArmor
-??   
-
+## AppArmor   
+<br/>
    
-## Evaluation ~
+# Evaluation ~
 - Questions about the operating chosen (the differences between aptitude and apt, or what SELinux or AppArmor is).
 - Modification of the hostname.
 - Creation of a new user and assign it
@@ -30,9 +33,7 @@ to a group.
 - Explain how this script works. Interrupt it without modifying it.
 
 
-## Solving ~
-
-### Setting up
+# Setting Up
 
 - [x] The hostname of your virtual machine must be your login ending with 42 ```(mhuerta42)```.
   
@@ -73,7 +74,7 @@ var-log | all disk space that left | Ext4 (manually mount: /var/log)
 
 ### Requirements
 
-**Security**
+**General**
 - [x] A SSH service will be running on port 4242 only. For security reasons, it must not be possible to connect using SSH as root.
 ```
 $ sudo apt install openssh-server
@@ -100,32 +101,36 @@ To add the user ```mhuerta``` into the ```sudo``` group:
 ```
 $ usermod -aG sudo mhuerta
 OR
-$ sudo adduser foo sudo
+$ sudo adduser mhuerta sudo
 ```
 To check all the users that belongs to the ```sudo``` and ```user42``` groups:
 ```
 $ getent group sudo
 $ getent group user42
 ```
+
 To check all the groups the current user belongs to:
 ```
 $ groups
 ```
+
 [Read about sudo](https://wiki.debian.org/sudo/)  
 [Read about sudo users](https://phoenixnap.com/kb/create-a-sudo-user-on-debian)   
 [Read about sudo vs su](https://phoenixnap.com/kb/sudo-vs-su-differences)
 
 <br/><br/>
 
-**Password policy:**
-
 
 - [ ] Create a script ```monitoring.sh```
+
+
+
   
 
 
 
 **Password policy:**
+
 - [ ] Your password has to expire every 30 days.
 - [ ] The minimum number of days allowed before the modification of a password will be set to 2.
 - [ ] The user has to receive a warning message 7 days before their password expires.
