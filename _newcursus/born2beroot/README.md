@@ -17,11 +17,12 @@ To set up a server with the minimum of services, ⚠️ a graphical interface is
 # Notes
 
 ### SELinux | Security-Enhanced Linux
-"SELinux is a security architecture for Linux® systems that allows administrators to have more control over who can access the system. (applications, processes, and files)"
+> "SELinux is a security architecture for Linux® systems that allows administrators to have more control over who can access the system. (applications, processes, and files)"
 [+ Read more](https://www.redhat.com/en/topics/linux/what-is-selinux)
 
 
-### AppArmor   
+### AppArmor
+>   
 <br/>
    
 # Evaluation ~
@@ -69,8 +70,6 @@ var-log | all disk space that left | Ext4 (manually mount: /var/log)
 
 <img src="https://github.com/melissahuerta/42/blob/dev/born2reboot/_newcursus/born2beroot/img/encr-volumes-1.png" alt="encryption volumes" width="560"/><br/>
 
-<img src="https://github.com/melissahuerta/42/blob/dev/born2reboot/_newcursus/born2beroot/img/encr-volumes-2.png" alt="encryption volumes mounted" width="560"/><br/>
-
 <img src="https://github.com/melissahuerta/42/blob/dev/born2reboot/_newcursus/born2beroot/img/lsblk_results.png" alt="lsblk results" width="560"/><br/>
 
 ### Requirements
@@ -109,8 +108,8 @@ $ sudo ufw enable
 [+ UFW configuration](https://linuxize.com/post/how-to-setup-a-firewall-with-ufw-on-debian-10/)
 
 
-<br/><br/>
-- [x] Implement a strong [password policy](##Notes)
+<br/>
+- [x] Implement a strong password policy. (check process above ⬇️⬇️)
 - [ ] Install and configure sudo following strict rules.
 - [x] In addition to the root user, a user with your login as username has to be present. This user has to belong to the user42 and sudo groups.
 ```
@@ -138,19 +137,17 @@ $ groups
 [Read about sudo users](https://phoenixnap.com/kb/create-a-sudo-user-on-debian)   
 [Read about sudo vs su](https://phoenixnap.com/kb/sudo-vs-su-differences)
 
-<br/><br/>
-
+<br/>
 
 - [ ] Create a script ```monitoring.sh```
-
 
 
 ----
 <br/>
 
-## Password policy:
+**Password policy:**
 
-> PAM(Pluggable Authentication Modules) module to check password strength: ```libpwquality```'s purpose is to provide common functions for password quality checking and also scoring them based on their apparent randomness. The library also provides a function for generating random passwords with good pronounceability.
+> PAM (Pluggable Authentication Modules) module to check password strength: ```libpwquality```'s purpose is to provide common functions for password quality checking and also scoring them based on their apparent randomness. The library also provides a function for generating random passwords with good pronounceability.
 
 [+ Read more](https://ostechnix.com/force-users-use-strong-passwords-debian-ubuntu/)
 
@@ -168,23 +165,20 @@ To modify the parameters mentioned above, we need to edit the file `login.defs` 
 $ sudo nano /etc/login.defs
 ```
 
-<img src="https://github.com/melissahuerta/42/blob/dev/born2reboot/_newcursus/born2beroot/img/passw_policy-1.png" alt="password policy" width="480"/><br/>
+<img src="https://github.com/melissahuerta/42/blob/dev/born2reboot/_newcursus/born2beroot/img/passw_policy-1.png" alt="password policy" width="540"/><br/>
 
 
 - [x] Your password must be at least 10 characters long. It must contain an uppercase letter and a number. Also, it must not contain more than 3 consecutive identical characters.
-- [x] The password must not include the name of the user.
+- [x] The password must not include the name of the user. ⚠️ Add ```reject_username``` at the end of the file.
+- [x] The following rule does not apply to the root password: The password must have at least 7 characters that are not part of the former password. Of course, your root password has to comply with this policy. ⚠️ Also uncomment the line ```enforce_for_root``` at the end of the file.
 
 To modify the parameters mentioned above, we need to edit the file `pwquality.conf` by:
 ```
 $ sudo nano /etc/security/pwquality.conf
 ```
-<img src="https://github.com/melissahuerta/42/blob/dev/born2reboot/_newcursus/born2beroot/img/passw_policy-2.png" alt="password policy" width="480"/>
-<br/>
+<img src="https://github.com/melissahuerta/42/blob/dev/born2reboot/_newcursus/born2beroot/img/passw_policy-2.png" alt="password policy" width="540"/>
 
-Add ```reject_username``` at the end of the file.
-
-- [ ] The following rule does not apply to the root password: The password must have at least 7 characters that are not part of the former password. Of course, your root password has to comply with this policy.
-
+<img src="https://github.com/melissahuerta/42/blob/dev/born2reboot/_newcursus/born2beroot/img/passw_policy-3.png" alt="password policy" width="540"/>
 
 [More commands](https://www.server-world.info/en/note?os=Debian_10&p=password)
 
