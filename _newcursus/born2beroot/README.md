@@ -16,12 +16,12 @@ To set up a server with the minimum of services, ⚠️ a graphical interface is
 
 # Notes
 
-## SELinux | Security-Enhanced Linux
+### SELinux | Security-Enhanced Linux
 "SELinux is a security architecture for Linux® systems that allows administrators to have more control over who can access the system. (applications, processes, and files)"
 [+ Read more](https://www.redhat.com/en/topics/linux/what-is-selinux)
 
 
-## AppArmor   
+### AppArmor   
 <br/>
    
 # Evaluation ~
@@ -49,12 +49,12 @@ domain name: (empty)
 username: mhuerta
 ```
 
-<img src="https://github.com/melissahuerta/42/blob/dev/born2reboot/_newcursus/born2beroot/img/hostname.png" alt="install hostname" width="500"/><br/>
+<img src="https://github.com/melissahuerta/42/blob/dev/born2reboot/_newcursus/born2beroot/img/hostname.png" alt="install hostname" width="680"/><br/>
 
 
 Create 2 partition disks:
 
-<img src="https://github.com/melissahuerta/42/blob/dev/born2reboot/_newcursus/born2beroot/img/partition-disks.png" alt="install partition" width="500"/><br/>
+<img src="https://github.com/melissahuerta/42/blob/dev/born2reboot/_newcursus/born2beroot/img/partition-disks.png" alt="install partition" width="680"/><br/>
 
 
 partition | size | use as
@@ -67,11 +67,11 @@ srv | 1G | Ext4 (mount: /srv)
 tmp | 1G | Ext4 (mount: /tmp)
 var-log | all disk space that left | Ext4 (manually mount: /var/log)
 
-<img src="https://github.com/melissahuerta/42/blob/dev/born2reboot/_newcursus/born2beroot/img/encr-volumes-1.png" alt="encryption volumes" width="500"/><br/>
+<img src="https://github.com/melissahuerta/42/blob/dev/born2reboot/_newcursus/born2beroot/img/encr-volumes-1.png" alt="encryption volumes" width="560"/><br/>
 
-<img src="https://github.com/melissahuerta/42/blob/dev/born2reboot/_newcursus/born2beroot/img/encr-volumes-2.png" alt="encryption volumes mounted" width="500"/><br/>
+<img src="https://github.com/melissahuerta/42/blob/dev/born2reboot/_newcursus/born2beroot/img/encr-volumes-2.png" alt="encryption volumes mounted" width="560"/><br/>
 
-<img src="https://github.com/melissahuerta/42/blob/dev/born2reboot/_newcursus/born2beroot/img/lsblk_results.png" alt="lsblk results" width="500"/><br/>
+<img src="https://github.com/melissahuerta/42/blob/dev/born2reboot/_newcursus/born2beroot/img/lsblk_results.png" alt="lsblk results" width="560"/><br/>
 
 ### Requirements
 
@@ -87,8 +87,7 @@ $ sudo service ssh status
 $ sudo systemctl restart ssh
 ```
 
-![sshd_config](https://github.com/melissahuerta/42/blob/dev/born2reboot/_newcursus/born2beroot/img/sshd_config.png)
-<br/>
+<img src="https://github.com/melissahuerta/42/blob/dev/born2reboot/_newcursus/born2beroot/img/sshd_config.png" alt="lsblk results" width="560"/><br/>
 
 [SSH configuration](https://phoenixnap.com/kb/how-to-enable-ssh-on-debian)
 <br/>
@@ -105,13 +104,13 @@ $ sudo ufw allow 4242
 $ sudo ufw enable
 ```
 
-<img src="https://github.com/melissahuerta/42/blob/dev/born2reboot/_newcursus/born2beroot/img/ufw.png" alt="ufw results" width="400"/><br/>
+<img src="https://github.com/melissahuerta/42/blob/dev/born2reboot/_newcursus/born2beroot/img/ufw.png" alt="ufw results" width="560"/><br/>
 
 [+ UFW configuration](https://linuxize.com/post/how-to-setup-a-firewall-with-ufw-on-debian-10/)
 
 
 <br/><br/>
-- [ ] Implement a strong password policy.
+- [x] Implement a strong [password policy](##Notes)
 - [ ] Install and configure sudo following strict rules.
 - [x] In addition to the root user, a user with your login as username has to be present. This user has to belong to the user42 and sudo groups.
 ```
@@ -146,20 +145,54 @@ $ groups
 
 
 
-  
+----
+<br/>
+
+## Password policy:
+
+> PAM(Pluggable Authentication Modules) module to check password strength: ```libpwquality```'s purpose is to provide common functions for password quality checking and also scoring them based on their apparent randomness. The library also provides a function for generating random passwords with good pronounceability.
+
+[+ Read more](https://ostechnix.com/force-users-use-strong-passwords-debian-ubuntu/)
 
 
+```
+$ sudo apt -y install libpam-pwquality
+```
 
-**Password policy:**
+- [x] Your password has to expire every 30 days.
+- [x] The minimum number of days allowed before the modification of a password will be set to 2.
+- [x] The user has to receive a warning message 7 days before their password expires.
 
-- [ ] Your password has to expire every 30 days.
-- [ ] The minimum number of days allowed before the modification of a password will be set to 2.
-- [ ] The user has to receive a warning message 7 days before their password expires.
-- [ ] Your password must be at least 10 characters long. It must contain an uppercase letter and a number. Also, it must not contain more than 3 consecutive identical characters.
-- [ ] The password must not include the name of the user.
+To modify the parameters mentioned above, we need to edit the file `login.defs` by:
+```
+$ sudo nano /etc/login.defs
+```
+
+<img src="https://github.com/melissahuerta/42/blob/dev/born2reboot/_newcursus/born2beroot/img/passw_policy-1.png" alt="password policy" width="480"/><br/>
+
+
+- [x] Your password must be at least 10 characters long. It must contain an uppercase letter and a number. Also, it must not contain more than 3 consecutive identical characters.
+- [x] The password must not include the name of the user.
+
+To modify the parameters mentioned above, we need to edit the file `pwquality.conf` by:
+```
+$ sudo nano /etc/security/pwquality.conf
+```
+<img src="https://github.com/melissahuerta/42/blob/dev/born2reboot/_newcursus/born2beroot/img/passw_policy-2.png" alt="password policy" width="480"/>
+<br/>
+
+Add ```reject_username``` at the end of the file.
+
 - [ ] The following rule does not apply to the root password: The password must have at least 7 characters that are not part of the former password. Of course, your root password has to comply with this policy.
 
+
+[More commands](https://www.server-world.info/en/note?os=Debian_10&p=password)
+
+----
+<br/>
+
 **Sudo group:**
+
 - [ ] Authentication using sudo has to be limited to 3 attempts in the event of an incor- rect password.
 - [ ] A custom message of your choice has to be displayed if an error due to a wrong password occurs when using sudo.
 - [ ] Each action using sudo has to be archived, both inputs and outputs. The log file has to be saved in the /var/log/sudo/ folder.
@@ -182,8 +215,6 @@ $ groups
   - [ ] The IPv4 address of your server and its MAC (Media Access Control) address.
   - [ ] The number of commands executed with the sudo program.
 
-
-## Learning ~
 
 ## Testing ~
 
