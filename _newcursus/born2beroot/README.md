@@ -140,7 +140,7 @@ $ groups
 
 <br/>
 
-- [ ] Create a script ```monitoring.sh```
+- [x] Create a script ```monitoring.sh```
 
 
 ----
@@ -216,21 +216,31 @@ $ sudo visudo
 
 **Script ```monitoring.sh```**
 
-- [ ] It must be developed in bash. At server startup, the script will display some information (listed below) on all terminals every 10 minutes. No error must be visible.
-- [ ] Your script must always be able to display the following information:
-  - [ ] The architecture of your operating system and its kernel version.
-  - [ ] The number of physical processors.
-  - [ ] The number of virtual processors.
-  - [ ] The current available RAM on your server and its utilization rate as a percentage.
-  - [ ] The current available memory on your server and its utilization rate as a percentage
-  - [ ] The current utilization rate of your processors as a percentage.
-  - [ ] The date and time of the last reboot.
-  - [ ] Whether LVM is active or not.
-  - [ ] The number of active connections.
-  - [ ] The number of users using the server.
-  - [ ] The IPv4 address of your server and its MAC (Media Access Control) address.
-  - [ ] The number of commands executed with the sudo program.
+> [wall](https://www.geeksforgeeks.org/wall-command-in-linux-with-examples/) 
 
+- [x] It must be developed in bash. At server startup, the script will display some information (listed below) on all terminals every 10 minutes. No error must be visible.
+- [x] Your script must always be able to display the following information:
+  - [x] The architecture of your operating system and its kernel version.
+  - [x] The number of physical processors.
+  - [x] The number of virtual processors.
+  - [x] The current available RAM on your server and its utilization rate as a percentage.
+  - [x] The current available memory on your server and its utilization rate as a percentage
+  - [x] The current utilization rate of your processors as a percentage.
+  - [x] The date and time of the last reboot.
+  - [x] Whether LVM is active or not.
+  - [x] The number of active connections.
+  - [x] The number of users using the server.
+  - [x] The IPv4 address of your server and its MAC (Media Access Control) address.
+  - [x] The number of commands executed with the sudo program.
+
+[CPU](https://developpaper.com/how-to-view-the-physical-cpu-logical-cpu-and-cpu-number-of-linux-servers/)
+[vCPU](https://webhostinggeeks.com/howto/how-to-display-the-number-of-processors-vcpu-on-linux-vps/)
+[LVM partitions](https://askubuntu.com/questions/202613/how-do-i-check-whether-i-am-using-lvm)
+[TCP connections](https://serverfault.com/questions/646729/get-number-of-tcp-established-connections?noredirect=1&lq=1)
+[Sudo commands](https://unix.stackexchange.com/questions/167935/details-about-sudo-commands-executed-by-all-user)
+
+We'd need a task scheduler as [CRON](https://linuxhint.com/schedule_linux_task/)
+<img src="https://github.com/melissahuerta/42/blob/dev/born2reboot/_newcursus/born2beroot/img/crontab.png" alt="crontab" width="580" class="center"/>
 
 ## Testing ~
 
