@@ -22,7 +22,10 @@ To set up a server with the minimum of services, ⚠️ a graphical interface is
 
 
 ### AppArmor
->   
+> AppArmor is an effective and easy-to-use Linux application security system. AppArmor proactively protects the operating system and applications from external or internal threats, even zero-day attacks, by enforcing good behavior and preventing both known and unknown application flaws from being exploited.
+
+[A comparison of AppArmor and SELinux](https://www.redhat.com/sysadmin/apparmor-selinux-isolation)
+
 <br/>
    
 # Evaluation ~
@@ -68,9 +71,7 @@ srv | 1G | Ext4 (mount: /srv)
 tmp | 1G | Ext4 (mount: /tmp)
 var-log | all disk space that left | Ext4 (manually mount: /var/log)
 
-<img src="https://github.com/melissahuerta/42/blob/dev/born2reboot/_newcursus/born2beroot/img/encr-volumes-1.png" alt="encryption volumes" width="560"/><br/>
-
-<img src="https://github.com/melissahuerta/42/blob/dev/born2reboot/_newcursus/born2beroot/img/lsblk_results.png" alt="lsblk results" width="560"/><br/>
+<img src="https://github.com/melissahuerta/42/blob/dev/born2reboot/_newcursus/born2beroot/img/encr-volumes-1.png" alt="encryption volumes" width="560"/>    <img src="https://github.com/melissahuerta/42/blob/dev/born2reboot/_newcursus/born2beroot/img/lsblk_results.png" alt="lsblk results" width="560"/><br/>
 
 ### Requirements
 
@@ -106,12 +107,12 @@ $ sudo ufw enable
 <img src="https://github.com/melissahuerta/42/blob/dev/born2reboot/_newcursus/born2beroot/img/ufw.png" alt="ufw results" width="560"/><br/>
 
 [+ UFW configuration](https://linuxize.com/post/how-to-setup-a-firewall-with-ufw-on-debian-10/)
-
-
 <br/>
+
 - [x] Implement a strong password policy. (check process above ⬇️⬇️)
-- [ ] Install and configure sudo following strict rules.
+- [x] Install and configure sudo following strict rules. (check process above ⬇️⬇️)
 - [x] In addition to the root user, a user with your login as username has to be present. This user has to belong to the user42 and sudo groups.
+
 ```
 $ su -l
 $ su - root
@@ -165,7 +166,7 @@ To modify the parameters mentioned above, we need to edit the file `login.defs` 
 $ sudo nano /etc/login.defs
 ```
 
-<img src="https://github.com/melissahuerta/42/blob/dev/born2reboot/_newcursus/born2beroot/img/passw_policy-1.png" alt="password policy" width="540"/><br/>
+<img src="https://github.com/melissahuerta/42/blob/dev/born2reboot/_newcursus/born2beroot/img/passw_policy-1.png" alt="password policy" width="580"/><br/>
 
 
 - [x] Your password must be at least 10 characters long. It must contain an uppercase letter and a number. Also, it must not contain more than 3 consecutive identical characters.
@@ -176,9 +177,9 @@ To modify the parameters mentioned above, we need to edit the file `pwquality.co
 ```
 $ sudo nano /etc/security/pwquality.conf
 ```
-<img src="https://github.com/melissahuerta/42/blob/dev/born2reboot/_newcursus/born2beroot/img/passw_policy-2.png" alt="password policy" width="540"/>
+<img src="https://github.com/melissahuerta/42/blob/dev/born2reboot/_newcursus/born2beroot/img/passw_policy-2.png" alt="password policy" width="580" class="center"/>
 
-<img src="https://github.com/melissahuerta/42/blob/dev/born2reboot/_newcursus/born2beroot/img/passw_policy-3.png" alt="password policy" width="540"/>
+<img src="https://github.com/melissahuerta/42/blob/dev/born2reboot/_newcursus/born2beroot/img/passw_policy-3.png" alt="password policy" width="580" class="center"/>
 
 [More commands](https://www.server-world.info/en/note?os=Debian_10&p=password)
 
@@ -187,13 +188,34 @@ $ sudo nano /etc/security/pwquality.conf
 
 **Sudo group:**
 
-- [ ] Authentication using sudo has to be limited to 3 attempts in the event of an incor- rect password.
-- [ ] A custom message of your choice has to be displayed if an error due to a wrong password occurs when using sudo.
-- [ ] Each action using sudo has to be archived, both inputs and outputs. The log file has to be saved in the /var/log/sudo/ folder.
-- [ ] The TTY mode has to be enabled for security reasons.
-- [ ] For security reasons too, the paths that can be used by sudo must be restricted. Example: ```/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin```
+> Sudo (sometimes considered as short for Super-user do) is a program designed to let system administrators allow some users to execute some commands as root (or another user). The basic philosophy is to give as few privileges as possible but still allow people to get their work done. Sudo is also an effective way to log who ran which command and when.
+
+- [x] Authentication using sudo has to be limited to 3 attempts in the event of an incorrect password.
+- [x] A custom message of your choice has to be displayed if an error due to a wrong password occurs when using sudo.
+- [x] Each action using sudo has to be archived, both inputs and outputs. The log file has to be saved in the /var/log/sudo/ folder.
+- [x] The TTY mode has to be enabled for security reasons.
+- [x] For security reasons too, the paths that can be used by sudo must be restricted. Example: ```/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin```
+
+To modify the parameters mentioned above, we need to edit the `sudoers` file by:
+```
+$ sudo visudo
+```
+
+<img src="https://github.com/melissahuerta/42/blob/dev/born2reboot/_newcursus/born2beroot/img/sudo_config.png" alt="sudo config" width="580" class="center"/>
+
+[Sudo insults](https://www.tecmint.com/sudo-insult-when-enter-wrong-password/)
+
+
+⚠️ Switching to root using ```sudo -i``` (or ```sudo su```) is usually deprecated because it cancels the below features:
+- Nobody needs to know the root password (sudo prompts for the current user's password). Extra privileges can be granted to individual users temporarily, and then taken away without the need for a password change.
+- It's easy to run only the commands that require special privileges via sudo; the rest of the time, you work as an unprivileged user, which reduces the damage that mistakes can cause.
+- Auditing/logging: when a sudo command is executed, the original username and the command are logged.
+
+----
+<br/>
 
 **Script ```monitoring.sh```**
+
 - [ ] It must be developed in bash. At server startup, the script will display some information (listed below) on all terminals every 10 minutes. No error must be visible.
 - [ ] Your script must always be able to display the following information:
   - [ ] The architecture of your operating system and its kernel version.
