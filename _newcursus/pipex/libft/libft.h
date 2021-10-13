@@ -6,7 +6,7 @@
 /*   By: mhuerta <mhuerta@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/31 18:58:37 by mhuerta           #+#    #+#             */
-/*   Updated: 2021/10/13 02:26:46 by mhuerta          ###   ########.fr       */
+/*   Updated: 2021/10/13 02:31:43 by mhuerta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,5 @@
 
 void	            ft_putchar_fd(char c, int fd);
 void	            ft_putstr_fd(char const *s, int fd);
-
 
 #endif

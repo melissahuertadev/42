@@ -6,7 +6,7 @@
 #    By: mhuerta <mhuerta@student.42.us.org>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/09 00:25:28 by mhuerta           #+#    #+#              #
-#    Updated: 2021/10/13 02:23:41 by mhuerta          ###   ########.fr        #
+#    Updated: 2021/10/13 02:31:56 by mhuerta          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,7 +49,6 @@ clean:
 	@rm -f $(OBJS)
 	@make clean -C ./libft
 	@echo	clean performed
-
 
 fclean: clean
 	@rm -f $(OBJS) $(NAME)

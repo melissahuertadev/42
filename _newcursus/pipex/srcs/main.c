@@ -6,7 +6,7 @@
 /*   By: mhuerta <mhuerta@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 00:29:29 by mhuerta           #+#    #+#             */
-/*   Updated: 2021/10/13 02:29:40 by mhuerta          ###   ########.fr       */
+/*   Updated: 2021/10/13 02:35:42 by mhuerta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ like the shell command < file1 cmd1 | cmd2 > file2.
 
 */
 
-#include "pipex.h"
+#include "../includes/pipex.h"
 
 
 int	main(int argc, char **argv)
