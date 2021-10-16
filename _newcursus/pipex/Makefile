@@ -6,7 +6,7 @@
 #    By: mhuerta <mhuerta@student.42.us.org>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/09 00:25:28 by mhuerta           #+#    #+#              #
-#    Updated: 2021/10/13 02:31:56 by mhuerta          ###   ########.fr        #
+#    Updated: 2021/10/16 05:03:33 by mhuerta          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,7 @@ all: $(NAME)
 	@echo	pipex has been compiled
 
 $(NAME): $(HEADER) $(LIBFT) $(OBJS)
-	@$(CC) $(CFLAGS) -I $(H_PATH) -c srcs/main.c - o srcs/main.o
+	@$(CC) $(CFLAGS) -I $(H_PATH) -c srcs/main.c -o srcs/main.o
 	@$(CC) $(CFLAGS) -I $(H_PATH) -c $(OBJS) -L ./libft -lft -o $(NAME)
 
 $(LIBFT) : 
