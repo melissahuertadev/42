@@ -15,7 +15,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 
-void                ft_putchar_fd(char c, int fd);
-void                ft_putstr_fd(char const *s, int fd);
+void	ft_putchar_fd(char c, int fd);
+void	ft_putstr_fd(char const *s, int fd);
 
 #endif

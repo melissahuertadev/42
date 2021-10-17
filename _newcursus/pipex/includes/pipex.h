@@ -15,8 +15,8 @@
 # include "../libft/libft.h"
 # include <unistd.h>
 
-void            infile_process(int  pfd, char **av);
-void            outfile_process(int pfd, char **av);
-int             main(int argc, char **argv);
+void	infile_process(int pfd, char **av);
+void	outfile_process(int pfd, char **av);
+int		main(int argc, char **argv);
 
 #endif
