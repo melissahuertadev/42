@@ -15,9 +15,8 @@
 # Variables section starts here #
 
 NAME = pipex
-#BONUS = pipex_bonus 
 
-SRCS_FILES = main.c
+SRCS_FILES = srcs/pipex.c srcs/execute.c
 SRCS_PATH = srcs/
 H_FILES = pipex.h
 H_PATH = includes/

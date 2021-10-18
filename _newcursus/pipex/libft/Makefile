@@ -18,6 +18,7 @@ NAME = libft.a
 
 SRCS = ft_putstr_fd.c ft_putchar_fd.c ft_split.c ft_countwords.c ft_strncmp.c \
 	ft_strjoin.c ft_strlen.c ft_strcat.c ft_strcpy.c
+
 OBJS = $(SRCS:.c=.o)
 HEADER = libft.h
 

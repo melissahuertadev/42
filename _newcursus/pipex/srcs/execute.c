@@ -21,12 +21,12 @@
 	Execute any command sent
 */
 
-char    *get_path(char *cmds, char **env)
+char	*get_path(char *cmds, char **env)
 {
-    char	**folders;
+	char	**folders;
 	char	*path;
 	char	*tmp;
-    int		i;
+	int		i;
 
 	i = 0;
 	while (ft_strnstr(env[i], "PATH", 4) == 0)
@@ -45,24 +45,22 @@ char    *get_path(char *cmds, char **env)
 	return (0);
 }
 
-
-void 	check_cmd(char *argv, char **env)
+void	check_cmd(char *argv, char **env)
 {
-    char    **cmds;
-    int     res;
+	char	**cmds;
+	int		res;
 	int		i;
 
 	i = 0;
 	if (*argv)
 	{
 		cmds = ft_split(argv, ' ');
-        res = execve(get_path(cmds[0], env), cmds, env);
+		res = execve(get_path(cmds[0], env), cmds, env);
 		if (res == -1)
-        {
-            perror("pipex: command not found");
-            exit(1);
-        }
+		{
+			perror("pipex: command not found");
+			exit(1);
+		}
 	}
-
 	exit(1);
 }

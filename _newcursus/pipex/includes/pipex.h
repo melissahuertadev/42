@@ -19,8 +19,8 @@
 # include <sys/types.h>
 # include <sys/wait.h>
 
-char    *get_path(char *cmds, char **env);
-void 	check_cmd(char *argv, char **env);
+char	*get_path(char *cmds, char **env);
+void	check_cmd(char *argv, char **env);
 void	infile_process(int pfd, char **av, char **env);
 void	outfile_process(int pfd, char **av, char **env);
 

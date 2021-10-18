@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   pipex.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mhuerta <mhuerta@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -19,7 +19,7 @@
 
 /*
 	PARENT PROCESS:
-	takes the pipe's end[1] as STDIN
+	takes the pipe's end[0] as STDIN
 	and the "outfitle" as STDOUT
 */
 void	outfile_process(int end, char **av, char **env)
@@ -29,13 +29,14 @@ void	outfile_process(int end, char **av, char **env)
 	fd = open(av[4], O_WRONLY | O_TRUNC | O_CREAT, 0777);
 	if (fd >= 0)
 	{
-		dup2(end, STDIN_FILENO); // take the end[0] as STDIN
+		dup2(end, STDIN_FILENO);
 		close(end);
-		dup2(fd, STDOUT_FILENO); //take the outfile as STDOUT
+		dup2(fd, STDOUT_FILENO);
 		close(fd);
 		check_cmd(av[3], env);
 	}
-	else {
+	else
+	{
 		close(end);
 		perror(av[4]);
 	}
@@ -51,28 +52,29 @@ void	infile_process(int end, char **av, char **env)
 	int	fd;
 
 	fd = open(av[1], O_RDONLY);
-	
 	if (fd >= 0)
 	{
-		dup2(fd, STDIN_FILENO); // take the infile as STDIN
+		dup2(fd, STDIN_FILENO);
 		close(fd);
-		dup2(end, STDOUT_FILENO); //take the end[1] as STDOUT
+		dup2(end, STDOUT_FILENO);
 		close(end);
-		check_cmd(av[2], env); ///execute???????????
+		check_cmd(av[2], env);
 	}
-	else {
+	else
+	{
 		close(end);
 		perror(av[1]);
 	}
 }
 
-
+//end[0]: read, end[1]: write
 int	main(int argc, char **argv, char **env)
 {
-	int	pipend[2]; //end[0]: read, //end[1]: write
+	int	pipend[2];
 	int	wstatus;
-	
-	if (argc != 5 || pipe(pipend) < 0) {
+
+	if (argc != 5 || pipe(pipend) < 0)
+	{
 		ft_putstr_fd("pipex: bad arguments or pipe error\n", 2);
 		return (1);
 	}

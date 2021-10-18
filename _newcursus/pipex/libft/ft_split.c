@@ -32,7 +32,6 @@ char	*ft_strsub(char const *s, unsigned int start, size_t len)
 	return (ns);
 }
 
-
 static int	ft_wrdlen(char const *w, char d)
 {
 	int		i;
@@ -52,7 +51,7 @@ static int	ft_wrdlen(char const *w, char d)
 
 char	**ft_split(char const *s, char c)
 {
-	char	**arr; //str2
+	char	**arr;
 	int		cw;
 	int		i;
 	int		j;
@@ -64,7 +63,7 @@ char	**ft_split(char const *s, char c)
 		return (NULL);
 	while (s[j])
 	{
-        if (s[j] != c && (j == 0 || s[j - 1] == c))
+		if (s[j] != c && (j == 0 || s[j - 1] == c))
 		{
 			arr[i] = ft_strsub(s + j, 0, ft_wrdlen(s + j, c));
 			if (!arr[i])
