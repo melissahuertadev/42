@@ -6,7 +6,7 @@
 /*   By: mhuerta <mhuerta@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/29 03:07:03 by mhuerta           #+#    #+#             */
-/*   Updated: 2021/10/18 06:55:48 by mhuerta          ###   ########.fr       */
+/*   Updated: 2021/10/18 14:21:09 by mhuerta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ char	*ft_strsub(char const *s, unsigned int start, size_t len)
 	int		i;
 
 	i = 0;
-	if (!(ns = (char *)malloc(sizeof(char) * len)))
+	ns = (char *)malloc(sizeof(char) * len);
+	if (!ns)
 		return (NULL);
 	while (i < (int)len)
 		ns[i++] = s[start++];
@@ -59,7 +60,8 @@ char	**ft_split(char const *s, char c)
 	i = 0;
 	j = 0;
 	cw = ft_countwords((char *)s, c);
-	if (!s || !(arr = (char **)malloc(sizeof(char *) * cw + 1)))
+	arr = (char **)malloc(sizeof(char *) * cw + 1);
+	if (!s || !arr)
 		return (NULL);
 	while (s[j])
 	{

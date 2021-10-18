@@ -6,7 +6,7 @@
 /*   By: mhuerta <mhuerta@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/29 03:06:36 by mhuerta           #+#    #+#             */
-/*   Updated: 2021/10/18 06:39:34 by mhuerta          ###   ########.fr       */
+/*   Updated: 2021/10/18 14:13:33 by mhuerta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	if (!s1 || !s2)
 		return (NULL);
 	len = ft_strlen((s1) + ft_strlen(s2) + 1);
-	if (!(ns = (char *)malloc(sizeof(char) * len)))
+	ns = (char *)malloc(sizeof(char) * len);
+	if (!ns)
 		return (NULL);
 	ft_strcpy(ns, (char *)s1);
 	ft_strcat(ns, s2);
