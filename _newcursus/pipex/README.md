@@ -34,3 +34,8 @@ III.1 Examples
 should be the same as “< infile ls -l | wc -l > outfile”
      $> ./pipex infile ``grep a1'' ``wc -w'' outfile
 should be the same as “< infile grep a1 | wc -w > outfile”
+
+
+Why use wait? 
+
+[Reference](https://www.youtube.com/watch?v=uh2FqejQRk8&list=PLfqABt5AS4FkW5mOn2Tn9ZZLLDwA3kZUY&index=11)
