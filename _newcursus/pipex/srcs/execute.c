@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.h                                            :+:      :+:    :+:   */
+/*   execute.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mhuerta <mhuerta@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/09 00:25:28 by mhuerta           #+#    #+#             */
-/*   Updated: 2021/10/18 04:30:24 by mhuerta          ###   ########.fr       */
+/*   Created: 2021/10/10 00:29:29 by mhuerta           #+#    #+#             */
+/*   Updated: 2021/10/18 04:58:55 by mhuerta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PIPEX_H
-# define PIPEX_H
-# include "../libft/libft.h"
-# include <unistd.h>
-# include <stdio.h>
-# include <fcntl.h>
-# include <sys/types.h>
-# include <sys/wait.h>
+/*
+    $> ./pipex file1 cmd1 cmd2 file2
+    $> < file1 cmd1 | cmd2 > file2
+*/
 
+#include "../includes/pipex.h"
 
-void 	check_cmd(char *argv);
-void	infile_process(int pfd, char **av);
-void	outfile_process(int pfd, char **av);
+/*
+	Execute any command sent
+*/
 
-#endif
+void 	check_cmd(char *argv)
+{
+}

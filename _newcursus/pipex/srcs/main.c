@@ -6,7 +6,7 @@
 /*   By: mhuerta <mhuerta@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 00:29:29 by mhuerta           #+#    #+#             */
-/*   Updated: 2021/10/18 01:40:27 by mhuerta          ###   ########.fr       */
+/*   Updated: 2021/10/18 04:52:11 by mhuerta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,20 +18,11 @@
 #include "../includes/pipex.h"
 
 /*
-	Execute any command sent
-*/
-
-void 	check_cmd(char *argv)
-{
-	printf("put this in the outfile %s\n", argv);
-}
-
-/*
 	PARENT PROCESS:
 	takes the pipe's end[1] as STDIN
 	and the "outfitle" as STDOUT
 */
-void	outfile_process(int end, char **av)//, char **env)
+void	outfile_process(int end, char **av)
 {
 	int	fd;
 	int	status;
@@ -48,7 +39,7 @@ void	outfile_process(int end, char **av)//, char **env)
 	}
 	else {
 		close(end);
-		perror(av[1]);
+		perror(av[4]);
 	}
 }
 
@@ -57,12 +48,11 @@ void	outfile_process(int end, char **av)//, char **env)
 	takes the "infile" as STDIN
 	and the pipe's end[1] as STDOUT
 */
-void	infile_process(int end, char **av)//, char **env)
+void	infile_process(int end, char **av)
 {		
 	int	fd;
 
 	fd = open(av[1], O_RDONLY);
-	
 	
 	if (fd >= 0)
 	{
@@ -70,7 +60,7 @@ void	infile_process(int end, char **av)//, char **env)
 		close(fd);
 		dup2(end, STDOUT_FILENO); //take the end[1] as STDOUT
 		close(end);
-		check_cmd(av[2]); //, env);
+		check_cmd(av[2]);
 	}
 	else {
 		close(end);
@@ -79,7 +69,7 @@ void	infile_process(int end, char **av)//, char **env)
 }
 
 
-int	main(int argc, char **argv) //, char **env)
+int	main(int argc, char **argv)
 {
 	int	pipend[2]; //end[0]: read, //end[1]: write
 
@@ -90,13 +80,12 @@ int	main(int argc, char **argv) //, char **env)
 	if (fork() == 0)
 	{
 		close(pipend[0]);
-		infile_process(pipend[1], argv); //, env);
+		infile_process(pipend[1], argv);
 	}
-		
 	else
 	{
 		close(pipend[1]);
-		outfile_process(pipend[0], argv); //, env);
+		outfile_process(pipend[0], argv);
 	}
 	return (0);
 }
