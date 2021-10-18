@@ -6,52 +6,45 @@
 #    By: mhuerta <mhuerta@student.42.us.org>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/09 00:25:28 by mhuerta           #+#    #+#              #
-#    Updated: 2021/10/18 01:48:09 by mhuerta          ###   ########.fr        #
+#    Updated: 2021/10/18 14:08:50 by mhuerta          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 .PHONY: all clean fclean re
 
-# Variables section starts here #
-
 NAME = pipex
-
-SRCS_FILES = srcs/pipex.c srcs/execute.c
-SRCS_PATH = srcs/
-H_FILES = pipex.h
-H_PATH = includes/
-LIBFT = libft/libft.a
-
-SRCS = $(addprefix $(SRCS_PATH), $(SRCS_FILE))
-OBJS = $(SRCS:.c=.o)
-HEADER = $(addprefix $(H_PATH), $(H_FILES))
 
 CC	= gcc
 CFLAGS	= -Wall -Werror -Wextra
 
-# Rules section starts here #
+H_DIR = includes/
+SRCS_DIR = srcs/
+OBJS_DIR = objs/
+
+OBJS = $(addprefix $(OBJS_DIR), $(SRCS:.c=.o))
+SRCS = pipex.c \
+	execute.c
+
 
 all: $(NAME)
 	@echo	pipex has been compiled
 
-$(NAME): $(HEADER) $(LIBFT) $(OBJS)
-	@$(CC) $(CFLAGS) -I $(H_PATH) -c srcs/main.c -o srcs/main.o
-	@$(CC) $(CFLAGS) -I $(H_PATH) $(OBJS) -L ./libft -lft -o $(NAME)
+$(NAME): $(OBJS)
+	@make -C libft
+	@$(CC) $(CFLAGS) -o $(NAME) $(OBJS) -L ./libft -lft
 
-$(LIBFT) : 
-	@make -C ./libft/
+$(OBJS_DIR)%.o : $(SRCS_DIR)%.c
+		@mkdir -p $(OBJS_DIR)
+		@$(CC) $(CFLAGS) -I libft/libft.h -I $(H_DIR) -c $< -o $@
 
-%.o : %.c $(HEADER)
-	$(CC) $(CFLAGS) -I $(H_PATH) -c $< -o $@
-	
 clean:
-	@rm -f $(OBJS)
-	@make clean -C ./libft
+	@rm -f libft/*.o
+	@rm -rf $(OBJS_DIR)
 	@echo	clean performed
 
 fclean: clean
-	@rm -f $(OBJS) $(NAME)
-	@make fclean -C ./libft
+	@rm -f libft/libft.a
+	@rm -f $(NAME)
 	@echo	fclean performed
 
 re: fclean all

@@ -6,7 +6,7 @@
 #    By: mhuerta <mhuerta@student.42.us.org>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/07/29 02:31:48 by mhuerta           #+#    #+#              #
-#    Updated: 2021/10/18 06:39:18 by mhuerta          ###   ########.fr        #
+#    Updated: 2021/10/18 14:08:37 by mhuerta          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,8 +16,8 @@
 
 NAME = libft.a
 
-SRCS = ft_putstr_fd.c ft_putchar_fd.c ft_split.c ft_countwords.c ft_strncmp.c \
-	ft_strjoin.c ft_strlen.c ft_strcat.c ft_strcpy.c
+SRCS = ft_putstr_fd.c ft_putchar_fd.c ft_split.c ft_countwords.c ft_strjoin.c\
+	ft_strlen.c ft_strcat.c ft_strcpy.c ft_strnstr.c
 
 OBJS = $(SRCS:.c=.o)
 HEADER = libft.h
